@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PFBv01.MainPage">
+
+    
+    <!--<Grid RowDefinitions="100,Auto,*"
+          ColumnDefinitions=".75*, .25*"
+          Padding="10">
+
+        <Image Grid.ColumnSpan="2"               
+            Source="elijah_craig.jpg"
+               BackgroundColor="Olive"/> 
+
+    </Grid>-->
+
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="_1_AppTitle"  Height="1*"/>
+            <RowDefinition x:Name="_2_SpinningWheels" Height="4*"/>
+            <RowDefinition x:Name="_3_TickNumbers" Height="2*"/>
+
+            <RowDefinition x:Name="_5_GuessButton" Height="2*"/>
+
+            <RowDefinition x:Name="_7_Guess1" Height="2*"/>
+            <RowDefinition x:Name="_8_Guess2" Height="2*"/>
+            <RowDefinition x:Name="_9_Guess3" Height="2*"/>
+            <RowDefinition x:Name="_10_Guess4" Height="2*"/>
+            <RowDefinition x:Name="_11_Guess5" Height="2*"/>
+            <RowDefinition x:Name="_12_Guess6" Height="2*"/>
+            <RowDefinition x:Name="_13_Guess7" Height="2*"/>
+            <RowDefinition x:Name="_14_Guess8" Height="2*"/>
+            <RowDefinition x:Name="_15_Guess9" Height="2*"/>
+            <RowDefinition x:Name="_16_Guess10" Height="2*"/>
+        </Grid.RowDefinitions>
+
+        
+        <Label x:Name="lblAppTitle" Grid.Row="0"
+                   Text="Pico Fermi Bagel" 
+                   FontSize="20" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   Margin="9,-7,0,0" />
+
+
+        <Grid x:Name="SpinningWheels" Grid.Row="1" Margin="12,0,12,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Image x:Name="SpinningWheelGuess1" Grid.Row="1" Grid.Column="0"                   
+                    Source="swipe1.png"
+                        BackgroundColor="Blue"/>
+
+            <Image x:Name="SpinningWheelGuess2" Grid.Row="1" Grid.Column="1" 
+                       Source="swipe5.png" 
+                           BackgroundColor="Bisque"/>
+
+            <Image x:Name="SpinningWheelGuess3" Grid.Row="1" Grid.Column="2" 
+                       Source="swipe8.png" 
+                           BackgroundColor="Yellow"/>
+        </Grid>
+
+        <!-- Add a BoxView to set the background color for the TickNumbers row -->
+        <BoxView Grid.Row="2" Grid.ColumnSpan="10" Color="LightGray" />
+        <Grid x:Name="TickNumbers" Grid.Row="2" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image x:Name="CheckBox0" Source="unchecked0.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBox0DoubleTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked1.png" Aspect="AspectFit" />
+                <CheckBox x:Name="TickNumberCheckBox" />
+            </Grid>
+            <Grid Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked2.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked3.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked4.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked5.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked6.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked7.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked8.png" Aspect="AspectFit" />
+            </Grid>
+            <Grid Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="unchecked9.png" Aspect="AspectFit" />
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+
+
+
+</ContentPage>
