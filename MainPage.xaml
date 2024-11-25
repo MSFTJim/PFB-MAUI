@@ -20,7 +20,7 @@
             <RowDefinition x:Name="_2_SpinningWheels" Height="4*"/>
             <RowDefinition x:Name="_3_TickNumbers" Height="2*"/>
 
-            <RowDefinition x:Name="_5_GuessButton" Height="2*"/>
+            <RowDefinition x:Name="_5_GuessButton" Height="3*"/>
 
             <RowDefinition x:Name="_7_Guess1" Height="2*"/>
             <RowDefinition x:Name="_8_Guess2" Height="2*"/>
@@ -65,7 +65,7 @@
             <Image x:Name="SpinningWheelGuess3" Grid.Row="1" Grid.Column="2" 
                        Source="swipe8.png" 
                            BackgroundColor="Yellow"/>
-        </Grid>
+        </Grid> <!-- end of spinning wheels-->
 
         <!-- Add a BoxView to set the background color for the TickNumbers row -->
         <BoxView Grid.Row="2" Grid.ColumnSpan="10" Color="LightGray" />
@@ -169,8 +169,38 @@
                 </Image>
             </Grid>
 
-        </Grid>
-    </Grid>
+        </Grid>  <!--end of tick numbers-->
+
+
+
+        <Grid x:Name="MakeGuessGrid" Grid.Row="3" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>            
+            
+            
+            <Button x:Name="MakeGuess" Text="Guess!" Grid.Column="0" 
+                    FontSize="18" 
+                    Clicked="MakeGuess_Click" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"                         
+                    WidthRequest="125" HeightRequest="35"/>
+            
+            <Button x:Name="NewGame" Text="New Game" Grid.Column="1"
+                    FontSize="18" 
+                    Clicked="NewGame_Click"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"                    
+                    WidthRequest="125" HeightRequest="35"/>
+
+        </Grid>  <!--end of make guess grid-->
+
+
+    </Grid>  <!--end of game board layout-->
 
 
 

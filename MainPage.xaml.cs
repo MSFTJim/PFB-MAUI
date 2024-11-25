@@ -13,9 +13,9 @@ namespace PFBv01
             InitializeComponent();
         }
 
-        #region CheckBox DoubleTap      
+        #region ExampleRegionBlock
+        #endregion  // ExampleRegionBlock
 
-        
         private void OnCheckBoxTapped(object sender, EventArgs e)
         {
             if (sender is Image checkBox)
@@ -26,7 +26,21 @@ namespace PFBv01
                 checkBox.Source = checkBoxStates[index] ? $"checked{index}.png" : $"unchecked{index}.png";
             }
         }
-        #endregion  // checkbox doubletap
+
+
+        private void MakeGuess_Click(object sender, EventArgs e)
+        {
+            // Add your event handler code here
+            int dog = 0;
+            dog++;
+        }
+        private void NewGame_Click(object sender, EventArgs e)
+        {
+            // Add your event handler code here
+            int dog = 0;
+            dog++;
+        }
+
 
     }
 
