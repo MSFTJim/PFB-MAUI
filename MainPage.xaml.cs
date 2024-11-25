@@ -6,7 +6,7 @@ namespace PFBv01
 {
     public partial class MainPage : ContentPage
     {
-        private bool CheckBox0Checked = false;
+        private bool[] checkBoxStates = new bool[10];
 
         public MainPage()
         {
@@ -15,20 +15,18 @@ namespace PFBv01
 
         #region CheckBox DoubleTap      
 
-        private void OnCheckBox0DoubleTapped(object sender, EventArgs e)
+        
+        private void OnCheckBoxTapped(object sender, EventArgs e)
         {
-            if (CheckBox0Checked)
+            if (sender is Image checkBox)
             {
-                CheckBox0.Source = "unchecked0.png";
-                CheckBox0Checked = false;
-            }
-            else
-            {
-                CheckBox0.Source = "checked0.png";
-                CheckBox0Checked = true;
+                int index = int.Parse(checkBox.StyleId);
+                checkBoxStates[index] = !checkBoxStates[index];
+
+                checkBox.Source = checkBoxStates[index] ? $"checked{index}.png" : $"unchecked{index}.png";
             }
         }
-#endregion  // checkbox doubletap
+        #endregion  // checkbox doubletap
 
     }
 

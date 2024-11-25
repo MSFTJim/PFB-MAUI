@@ -86,44 +86,88 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+
             <Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image x:Name="CheckBox0" Source="unchecked0.png" Aspect="AspectFit" >
+                <Image x:Name="CheckBox0" StyleId="0" Source="unchecked0.png" Aspect="AspectFit" >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1"
-                           Tapped="OnCheckBox0DoubleTapped" />
+                           Tapped="OnCheckBoxTapped" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
 
             <Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked1.png" Aspect="AspectFit" />
-                <CheckBox x:Name="TickNumberCheckBox" />
+                <Image x:Name="CheckBox1" StyleId="1" Source="unchecked1.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked2.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox2" StyleId="2" Source="unchecked2.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked3.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox3" StyleId="3" Source="unchecked3.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked4.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox4" StyleId="4" Source="unchecked4.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked5.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox5" StyleId="5" Source="unchecked5.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked6.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox6" StyleId="6" Source="unchecked6.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked7.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox7" StyleId="7" Source="unchecked7.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked8.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox8" StyleId="8" Source="unchecked8.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             <Grid Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center">
-                <Image Source="unchecked9.png" Aspect="AspectFit" />
+                <Image x:Name="CheckBox9" StyleId="9" Source="unchecked9.png" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                           Tapped="OnCheckBoxTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
-
 
         </Grid>
     </Grid>
