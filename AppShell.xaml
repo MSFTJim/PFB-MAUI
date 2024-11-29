@@ -7,8 +7,8 @@
     Shell.FlyoutBehavior="Flyout"
     Title="PFBv01">
 
-    <ShellContent
-        Title="Home"
+    <ShellContent     
+        x:Name="MainPageShellContent"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

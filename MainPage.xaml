@@ -54,17 +54,42 @@
             </Grid.ColumnDefinitions>
 
 
-            <Image x:Name="SpinningWheelGuess1" Grid.Row="1" Grid.Column="0"                   
+            <!--<ScrollView Grid.Row="1" Grid.Column="0">
+                <StackLayout Spacing="-70">
+                    <Image Source="swipe1.png"  WidthRequest="150" HeightRequest="150" />
+                    <Image Source="swipe2.png"  WidthRequest="150" HeightRequest="150"/>
+                    <Image Source="swipe3.png"  WidthRequest="150" HeightRequest="150"/>
+                </StackLayout>
+            </ScrollView>-->
+
+
+            <Image x:Name="SpinningWheelGuess1" StyleId="1" Grid.Row="1" Grid.Column="0"                   
                     Source="swipe1.png"
-                        BackgroundColor="Blue"/>
+                        BackgroundColor="Blue">
+                <Image.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="OnSwiped" />
+                    <SwipeGestureRecognizer Direction="Down" Swiped="OnSwiped" />
+                </Image.GestureRecognizers>
+            </Image>    
 
-            <Image x:Name="SpinningWheelGuess2" Grid.Row="1" Grid.Column="1" 
-                       Source="swipe5.png" 
-                           BackgroundColor="Bisque"/>
+                <Image x:Name="SpinningWheelGuess2" StyleId="2" Grid.Row="1" Grid.Column="1" 
+                   Source="swipe5.png" 
+                   BackgroundColor="Bisque">
+                <Image.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="OnSwiped" />
+                    <SwipeGestureRecognizer Direction="Down" Swiped="OnSwiped" />
+                </Image.GestureRecognizers>
+            </Image>
 
-            <Image x:Name="SpinningWheelGuess3" Grid.Row="1" Grid.Column="2" 
-                       Source="swipe8.png" 
-                           BackgroundColor="Yellow"/>
+            <Image x:Name="SpinningWheelGuess3" StyleId="3" Grid.Row="1" Grid.Column="2" 
+                   Source="swipe8.png" 
+                   BackgroundColor="Yellow">
+                <Image.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="OnSwiped" />
+                    <SwipeGestureRecognizer Direction="Down" Swiped="OnSwiped" />
+                </Image.GestureRecognizers>
+            </Image>
+
         </Grid> <!-- end of spinning wheels-->
 
         <!-- Add a BoxView to set the background color for the TickNumbers row -->
@@ -180,22 +205,22 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>            
-            
-            
+            </Grid.ColumnDefinitions>
+
+
             <Button x:Name="MakeGuess" Text="Guess!" Grid.Column="0" 
                     FontSize="18" 
                     Clicked="MakeGuess_Click" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center"                         
-                    WidthRequest="125" HeightRequest="35"/>
-            
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="Center"                    
+                    Padding="10"/>      
+
             <Button x:Name="NewGame" Text="New Game" Grid.Column="1"
                     FontSize="18" 
                     Clicked="NewGame_Click"
-                    HorizontalOptions="Center" 
+                    HorizontalOptions="FillAndExpand" 
                     VerticalOptions="Center"                    
-                    WidthRequest="125" HeightRequest="35"/>
+                    Padding="10"/>
 
         </Grid>  <!--end of make guess grid-->
 
