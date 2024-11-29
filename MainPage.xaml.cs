@@ -85,6 +85,27 @@ namespace PFBv01
            StartGame();
         }
 
+        private void OnSwiped2(object sender, SwipedEventArgs e)
+        {
+            if (sender is Image image)
+            {
+                string imageId = image.StyleId;
+
+                switch (e.Direction)
+                {
+                    case SwipeDirection.Up:
+                        // Handle swipe up                        
+                        DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess{imageId}", "OK");
+                        break;
+                    case SwipeDirection.Down:
+                        // Handle swipe down                        
+                        DisplayAlert("Swiped", $"You swiped down on SpinningWheelGuess{imageId}", "OK");
+                        break;
+                }
+            }
+        }
+
+
         private void OnSwiped(object sender, SwipedEventArgs e)
         {
             if (sender is Image image)
