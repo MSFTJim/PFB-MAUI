@@ -17,5 +17,10 @@
      ContentTemplate="{DataTemplate local:HowToPlay}"
      Route="HowToPlay" />
 
+    <ShellContent
+     Title="About PFB"
+     ContentTemplate="{DataTemplate local:About}"
+     Route="About" />
+
 
 </Shell>
