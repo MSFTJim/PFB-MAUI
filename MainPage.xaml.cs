@@ -14,10 +14,7 @@ namespace PFBv01
         private int CurrentGuess3;
         private int Answer1;
         private int Answer2;
-        private int Answer3;
-        private string? CurrentGuessImage1;
-        private string? CurrentGuessImage2;
-        private string? CurrentGuessImage3;
+        private int Answer3;        
         public bool GameOver;
         public bool SwipeUp;
         private string? PriorGuessAny;
@@ -31,9 +28,6 @@ namespace PFBv01
 
         private void StartGame()
         {
-            GuessNumber = 1;
-            GameOver = false;
-
             GuessNumber = 1;
             GameOver = false;
             SwipeUp = false;            
@@ -110,9 +104,9 @@ namespace PFBv01
             Guess10Grade.Text = "???";
 
             // set Guess row 10 to the answer for testing
-            Guess10_1.Text = Answer1.ToString();
-            Guess10_2.Text = Answer2.ToString();
-            Guess10_3.Text = Answer3.ToString();
+            //Guess10_1.Text = Answer1.ToString();
+            //Guess10_2.Text = Answer2.ToString();
+            //Guess10_3.Text = Answer3.ToString();
 
         }
 
@@ -235,7 +229,7 @@ namespace PFBv01
                 if (CurrentAnswer == "FFF")
                 {
                     //MessageBox.Show("Congratulations!!.  You guessed the right numbers within 10 tries!!"); 
-                    DisplayAlert("Congratulations!!", $"You guessed the right numbers within 10 tries!!", "OK");
+                    DisplayAlert("Congratulations!!", $"You guessed the right numbers in {GuessNumber} tries!!", "OK");
                     //LayoutYouWon.Visibility = Visibility.Visible;
                     //Winner.Begin();
                     GuessNumber = 10;
