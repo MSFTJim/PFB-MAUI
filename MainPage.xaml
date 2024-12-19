@@ -87,9 +87,7 @@
                 </Image.GestureRecognizers>
             </Image>
 
-        </Grid> <!-- end of spinning wheels-->
-
-        <!-- Add a BoxView to set the background color for the TickNumbers row -->
+        </Grid> <!-- end of spinning wheels-->        
         
         <Grid x:Name="TickNumbers" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
@@ -235,8 +233,10 @@
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
             
+            <Border x:Name="Guess1Border" Grid.Row="3"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
+
             <Label x:Name="Guess1Title" Grid.Row="0" Grid.Column="0" Text="Guess 1" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess1Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,95,0"/>
+            <Label x:Name="Guess1Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess1_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center"  Margin="-20,0,20,0"  />
             <Label x:Name="Guess1_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center"  Margin="-20,0,20,0" />
             <Label x:Name="Guess1_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center"  Margin="-20,0,20,0" />            
@@ -256,9 +256,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess2Border" Grid.Row="4"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess2Title" Grid.Row="0" Grid.Column="0" Text="Guess 2" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess2Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess2Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess2_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"  />
             <Label x:Name="Guess2_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"  />
             <Label x:Name="Guess2_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"  />
@@ -278,9 +280,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess3Border" Grid.Row="5"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess3Title" Grid.Row="0" Grid.Column="0" Text="Guess 3" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess3Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess3Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess3_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess3_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess3_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -300,9 +304,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess4Border" Grid.Row="6"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess4Title" Grid.Row="0" Grid.Column="0" Text="Guess 4" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess4Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess4Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess4_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess4_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess4_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -322,9 +328,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess5Border" Grid.Row="7"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess5Title" Grid.Row="0" Grid.Column="0" Text="Guess 5" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess5Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess5Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess5_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess5_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess5_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -344,9 +352,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess6Border" Grid.Row="8"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess6Title" Grid.Row="0" Grid.Column="0" Text="Guess 6" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess6Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess6Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess6_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess6_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess6_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -366,9 +376,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess7Border" Grid.Row="9"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess7Title" Grid.Row="0" Grid.Column="0" Text="Guess 7" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess7Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess7Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess7_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess7_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess7_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -388,9 +400,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess8Border" Grid.Row="10"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess8Title" Grid.Row="0" Grid.Column="0" Text="Guess 8" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess8Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess8Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess8_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess8_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess8_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -410,9 +424,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess9Border" Grid.Row="11"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess9Title" Grid.Row="0" Grid.Column="0" Text="Guess 9" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess9Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess9Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess9_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess9_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess9_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
@@ -432,9 +448,11 @@
                 <ColumnDefinition Width=".5*" />
                 <ColumnDefinition Width=".5*" />
             </Grid.ColumnDefinitions>
+            
+            <Border x:Name="Guess10Border" Grid.Row="12"  Grid.ColumnSpan="10" Stroke ="Transparent" BackgroundColor="Transparent" />
 
             <Label x:Name="Guess10Title" Grid.Row="0" Grid.Column="0" Text="Guess 10" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="Guess10Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,55,0"/>
+            <Label x:Name="Guess10Grade" Grid.Row="0" Grid.Column="1" Text="???" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,70,0"/>
             <Label x:Name="Guess10_1" Grid.Row="0" Grid.Column="2" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess10_2" Grid.Row="0" Grid.Column="3" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>
             <Label x:Name="Guess10_3" Grid.Row="0" Grid.Column="4" Text="?" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,20,0"/>

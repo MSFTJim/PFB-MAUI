@@ -2,6 +2,7 @@
 using Microsoft.Maui.Controls;
 using System;
 using System.Numerics;
+using System.Xml.Linq;
 
 namespace PFBv01
 {
@@ -44,24 +45,22 @@ namespace PFBv01
 
             SpinningWheelGuess3.Source = $"swipe{CurrentGuess3}.png";
             SpinningWheelGuess2.Source = $"swipe{CurrentGuess2}.png";
-            SpinningWheelGuess1.Source = $"swipe{CurrentGuess1}.png";
+            SpinningWheelGuess1.Source = $"swipe{CurrentGuess1}.png";            
 
-            for (int i = 0; i < checkBoxStates.Length; i++)
-            {
-                checkBoxStates[i] = false;
-            }
+            // Set Tick Marks for new game status
+            ClearTickMarks();
 
-            for (int i = 0; i < 10; i++)
-            {
-                var checkBox = this.FindByName<Image>($"CheckBox{i}");
-                if (checkBox != null)
-                {
-                    checkBox.Source = $"unchecked{i}.png";
-                }
-            }
+            // Set all Guess Highlight BoxView colors to transparent
+           SetGuessHighlightColorsToTransparent();
 
             MakeGuess.IsEnabled = true;
 
+            ReSetGuessGrid();                     
+
+        }
+
+        private void ReSetGuessGrid()
+        {
             Guess1_1.Text = "?";
             Guess1_2.Text = "?";
             Guess1_3.Text = "?";
@@ -103,12 +102,52 @@ namespace PFBv01
             Guess10_3.Text = "?";
             Guess10Grade.Text = "???";
 
-            // set Guess row 10 to the answer for testing
-            //Guess10_1.Text = Answer1.ToString();
-            //Guess10_2.Text = Answer2.ToString();
-            //Guess10_3.Text = Answer3.ToString();
-
         }
+
+        private void SetGuessHighlightColorsToTransparent()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                // Construct the name of the BoxView dynamically
+                string highlightBorderName = $"Guess{i}Border";
+
+                // Find the Border by name
+                var highlightBox = this.FindByName<Border>(highlightBorderName);
+
+                // Set the color of the Border to transparent
+                if (highlightBox != null)
+                {
+                    highlightBox.BackgroundColor = Colors.Transparent;
+                }
+            }
+        }
+
+        private void ClearTickMarks()
+        {
+            for (int i = 0; i < checkBoxStates.Length; i++)
+            {
+                checkBoxStates[i] = false;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                var checkBox = this.FindByName<Image>($"CheckBox{i}");
+                if (checkBox != null)
+                {
+                    checkBox.Source = $"unchecked{i}.png";
+                }
+            }
+        }
+
+        private void AnswerHint()
+        {
+            // set Guess row 10 to the answer for testing
+            Guess10_1.Text = Answer1.ToString();
+            Guess10_2.Text = Answer2.ToString();
+            Guess10_3.Text = Answer3.ToString();
+        }
+
+
 
         #region ExampleRegionBlock
         #endregion  // ExampleRegionBlock
@@ -215,6 +254,19 @@ namespace PFBv01
             //DisplayAlert("Guess Grade", $"Your guess grade: {CurrentAnswer}", "OK");
 
             RecordGuess(CurrentAnswer);
+
+            // Construct the name of the control dynamically
+            string highlightBorderName = $"Guess{GuessNumber}Border";
+
+            // Find the control by name
+            var highlightBorder = this.FindByName<Border>(highlightBorderName);
+
+            // Set the color of the control
+            if (highlightBorder != null)
+            {
+                highlightBorder.BackgroundColor = Colors.LightGray;
+            }
+
             if (GuessNumber == 10 || CurrentAnswer == "FFF")
             {
                 CurrentGuess1 = Answer1;                
