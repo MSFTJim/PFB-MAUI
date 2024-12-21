@@ -35,13 +35,13 @@
                    Margin="40,0,0,0" />
             <!-- Add a spacer Label with no text -->
             <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
-            <Label Text="Win or Lose, the spinning number wheels will be set to the right number at the end." 
+            <Label Text="Double-Tap the numbers below the spinning number wheels to help you keep track of numbers you have eliminated." 
                    FontSize="16" 
                    HorizontalOptions="FillAndExpand" 
-                   VerticalOptions="Start" />
+                   VerticalOptions="Start" />           
             <!-- Add another spacer Label with no text -->
-            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
-            <Label Text="Double-Tap the numbers below the spinning number wheels to help you keep track of numbers you have eliminated." 
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />            
+            <Label Text="Win or Lose, the spinning number wheels will be set to the right number at the end." 
                    FontSize="16" 
                    HorizontalOptions="FillAndExpand" 
                    VerticalOptions="Start" />

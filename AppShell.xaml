@@ -15,7 +15,12 @@
     <ShellContent
      Title="How to Play"
      ContentTemplate="{DataTemplate local:HowToPlay}"
-     Route="HowToPlay" />
+     Route="HowToPlay" />    
+
+    <ShellContent
+     Title="Game Settings"
+     ContentTemplate="{DataTemplate local:GameSettings}"
+     Route="GameSettings" />
 
     <ShellContent
      Title="About PFB"
