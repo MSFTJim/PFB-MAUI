@@ -4,17 +4,19 @@
              x:Class="PFBv01.About"
              Title="About">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Pico Fermi Bagel!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Text="Welcome to Pico Fermi Bagel!" VerticalOptions="Center" HorizontalOptions="Center" />
+        
+        <!-- Add a spacer blank line -->
+        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />        
+        <!-- Add a spacer solid black line -->
         <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />
-        <Label 
-            x:Name="BuildDateLabel"
-            Text="Last Build Date: "
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />   
+
+        <!-- Add a spacer blank line -->
+        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />        
+
+        <Label x:Name="BuildVersionLabel" Text="Build Version: " VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="BuildDateLabel" Text="Last Build Date: " VerticalOptions="Center" HorizontalOptions="Center" />
+        
     </VerticalStackLayout>
 </ContentPage>

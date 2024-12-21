@@ -9,7 +9,7 @@
         }
 
         private void SetDynamicTitle()
-        {            
+        {
             MainPageShellContent.Title = "Pico Fermi Bagel";
         }
     }

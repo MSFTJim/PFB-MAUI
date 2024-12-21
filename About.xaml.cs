@@ -1,6 +1,7 @@
 using Microsoft.Maui.Storage;
 using System.Diagnostics;
 using System.Reflection;
+using Microsoft.Maui.ApplicationModel;
 
 namespace PFBv01;
 
@@ -16,8 +17,11 @@ public partial class About : ContentPage
         base.OnAppearing();
 
         string filePath = "AboutAssets.txt";
-
         BuildDateLabel.Text = await ReadTextFileAsync(filePath);
+        
+        var version = AppInfo.Current.Version;
+        string formattedVersion = $"{version.Major}.{version.Minor}.{version.Build}";
+        BuildVersionLabel.Text = "App Version: " + formattedVersion;
 
     }
 

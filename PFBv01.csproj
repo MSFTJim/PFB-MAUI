@@ -19,6 +19,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 
 		<!-- Display name -->
 		<ApplicationTitle>PFBv01</ApplicationTitle>
@@ -27,8 +28,8 @@
 		<ApplicationId>com.companyname.pfbv01</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>0.0.3</ApplicationDisplayVersion>	
+        
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
@@ -38,13 +39,17 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-        <Copyright>Copyright © $([System.DateTime]::UtcNow.Year) Jamesbrook Consulting ($([System.DateTime]::UtcNow.AddHours(-5).ToString("MM/dd/yyyy hh:mm:ss tt")))</Copyright>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>               
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\app_icon_pfb.png" />
+		<MauiIcon Include="Resources\AppIcon\app_icon_pfb.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiIcon>
+		<!--<MauiIcon Include="Resources\AppIcon\pfb_app_icon.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiIcon>-->
 		<!--<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />-->
 
 		<!-- Splash Screen -->
@@ -97,9 +102,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">		
-		<!--<Exec Command="powershell -Command &quot;'Build ID: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') &gt; Resources\raw\AboutAssets.txt&quot;" />-->
-		<Exec Command="powershell -Command &quot;'Build ID: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') | Out-File -FilePath Resources\Raw\AboutAssets.txt -Encoding utf8&quot;" />
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">				
+		<Exec Command="powershell -Command &quot;'Last Build Date: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') | Out-File -FilePath Resources\Raw\AboutAssets.txt -Encoding utf8&quot;" />
 	</Target>
 
 

@@ -2,11 +2,65 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PFBv01.HowToPlay"
-             Title="HowToPlay">
-    <VerticalStackLayout>
-        <Label Text="How to Play" 
-        FontSize="24" 
-        HorizontalOptions="Center" 
-        VerticalOptions="CenterAndExpand" />
-    </VerticalStackLayout>
+             Title="How to Play">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+            <!-- Add a spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <Label Text="Swipe the colorful spinning number wheels up or down to select your 3 digits, then press Guess." 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" />
+            <!-- Add a spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <Label Text="Each guess is graded with a clue to help you solve as noted below:" 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" />
+            <Label Text="F = (Fermi) Right Number Right Spot" 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" 
+                   Margin="40,0,0,0" />
+            <Label Text="P = (Pico) Right Number Wrong Spot" 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" 
+                   Margin="40,0,0,0" />
+            <Label Text="B = (Bagel) Wrong Number" 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" 
+                   Margin="40,0,0,0" />
+            <!-- Add a spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <Label Text="Win or Lose, the spinning number wheels will be set to the right number at the end." 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" />
+            <!-- Add another spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <Label Text="Double-Tap the numbers below the spinning number wheels to help you keep track of numbers you have eliminated." 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" />
+            <!-- Add a spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <Label Text="Double-Tap the game end animations to uncover blocked grading." 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" />
+            <!-- Add a spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <!-- Add a spacer Label with no text -->
+            <Label Text="" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <Label Text="Good luck!!" 
+                   FontSize="16" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
+
+
