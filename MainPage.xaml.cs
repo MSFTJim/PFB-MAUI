@@ -17,23 +17,31 @@ namespace PFBv01
         private int Answer2;
         private int Answer3;        
         public bool GameOver;
-        public bool SwipeUp;
-        private string? PriorGuessAny;
-        public bool BadGuess;
+        public bool SwipeUp;       
+
 
         public MainPage()
         {
             InitializeComponent();
             StartGame();
+
+            
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            // Add your code here to handle the event when the page appears
+            AnswerHint();
+
         }
 
         private void StartGame()
         {
             GuessNumber = 1;
             GameOver = false;
-            SwipeUp = false;            
-            PriorGuessAny = "?";
-            BadGuess = false;
+            SwipeUp = false;                        
+            
 
             Answer1 = new Random().Next(0, 10);
             Answer2 = new Random().Next(0, 10);
@@ -139,16 +147,28 @@ namespace PFBv01
             }
         }
 
-        private void AnswerHint()
+        public void AnswerHint()
         {
-            // set Guess row 10 to the answer for testing
-            Guess10_1.Text = Answer1.ToString();
-            Guess10_2.Text = Answer2.ToString();
-            Guess10_3.Text = Answer3.ToString();
+            if (GameOver) return;
+            bool ShowHint = Preferences.Default.Get("GameHintOn", false);
+
+            if (ShowHint)
+            {                
+                Guess10_1.Text = Answer1.ToString();
+                Guess10_2.Text = Answer2.ToString();
+                Guess10_3.Text = Answer3.ToString();
+            }
+            else
+            {
+                Guess10_1.Text = "?";
+                Guess10_2.Text = "?";
+                Guess10_3.Text = "?";
+            }
+            
         }
 
 
-
+        
         #region ExampleRegionBlock
         #endregion  // ExampleRegionBlock
 

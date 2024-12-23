@@ -16,7 +16,7 @@
 
         <Label x:Name="BuildVersionLabel" Text="Build Version: " VerticalOptions="Center" HorizontalOptions="Center" />
         <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label x:Name="BuildDateLabel" Text="Last Build Date: " VerticalOptions="Center" HorizontalOptions="Center" />
-        
+        <Label x:Name="BuildDateLabel" Text="Last Build Date: " VerticalOptions="Center" HorizontalOptions="Center" />        
+
     </VerticalStackLayout>
 </ContentPage>

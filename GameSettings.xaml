@@ -16,16 +16,18 @@
         <!-- Add Label and CheckBox for turning off game sounds -->
         <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Start" Margin="40,0,0,0">
             <Label Text="Turn off game sounds:" VerticalOptions="Center" HorizontalOptions="Start" />
-            <CheckBox x:Name="GameSoundsCheckBox" VerticalOptions="Center" HorizontalOptions="Start" />
+            <CheckBox x:Name="GameSoundsCheckBox" VerticalOptions="Center" HorizontalOptions="Start" 
+                       CheckedChanged="OnGameSoundsCheckBoxCheckedChanged"/>
         </HorizontalStackLayout>
 
         <!-- Add a spacer blank line -->
         <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <!-- Add Label and CheckBox for turning off game sounds -->
+        <!-- Add Label and CheckBox for turning on game hint -->
         <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Start" Margin="40,0,0,0">
             <Label Text="Turn on Game Hint:" VerticalOptions="Center" HorizontalOptions="Start" />
-            <CheckBox x:Name="GameHintCheckBox" VerticalOptions="Center" HorizontalOptions="Start" />
+            <CheckBox x:Name="GameHintCheckBox" VerticalOptions="Center" HorizontalOptions="Start"
+                      CheckedChanged="OnGameHintCheckBoxCheckedChanged"/>
         </HorizontalStackLayout>
 
 
