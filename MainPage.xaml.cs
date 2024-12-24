@@ -1,5 +1,6 @@
 ﻿//using static Android.Gestures.GestureOverlayView;
 using Microsoft.Maui.Controls;
+using Plugin.Maui.Audio;
 using System;
 using System.Numerics;
 using System.Xml.Linq;
@@ -17,7 +18,9 @@ namespace PFBv01
         private int Answer2;
         private int Answer3;        
         public bool GameOver;
-        public bool SwipeUp;       
+        public bool SwipeUp;
+        private IAudioPlayer? SwipeUpSoundEffect;
+        private IAudioPlayer? SwipeDownSoundEffect;
 
 
         public MainPage()
@@ -28,12 +31,28 @@ namespace PFBv01
             
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             // Add your code here to handle the event when the page appears
             AnswerHint();
+            // woosh = up, click = down
+            SwipeUpSoundEffect = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("Woosh.wav"));
+            SwipeDownSoundEffect = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("RVBCLICK.wav"));            
 
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            // Add your code here to handle the event when the page disappears
+            //	audioPlayer.Play();
+            SwipeUpSoundEffect!.Dispose();
+            SwipeUpSoundEffect = null;
+            SwipeDownSoundEffect!.Dispose();
+            SwipeDownSoundEffect = null;
+
+            DisplayAlert("Goodbye", "The page is disappearing.", "OK");
         }
 
         private void StartGame()
@@ -63,11 +82,11 @@ namespace PFBv01
 
             MakeGuess.IsEnabled = true;
 
-            ReSetGuessGrid();                     
+            ResetGuessGrid();                     
 
         }
 
-        private void ReSetGuessGrid()
+        private void ResetGuessGrid()
         {
             Guess1_1.Text = "?";
             Guess1_2.Text = "?";
@@ -236,11 +255,13 @@ namespace PFBv01
                         // Handle swipe up
                         currentGuess = (currentGuess + 1) % 10; // Increment and wrap around at 10
                         //DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess{imageId}", "OK");
+                        SwipeUpSoundEffect!.Play();
                         break;
                     case SwipeDirection.Down:
                         // Handle swipe down
                         currentGuess = (currentGuess - 1 + 10) % 10; // Decrement and wrap around at 0
                         //DisplayAlert("Swiped", $"You swiped down on SpinningWheelGuess{imageId}", "OK");
+                        SwipeDownSoundEffect!.Play();
                         break;
                 }
 
