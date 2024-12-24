@@ -11,9 +11,7 @@ public partial class GameSettings : ContentPage
         // Load the saved setting 
         GameSoundsCheckBox.IsChecked = LoadGameSoundsSetting();
         GameHintCheckBox.IsChecked = LoadGameHintSetting();
-
-        // Handle the CheckBox checked change event
-        GameSoundsCheckBox.CheckedChanged += OnGameSoundsCheckBoxCheckedChanged!;
+   
     }
 
     
