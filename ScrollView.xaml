@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PFBv01.ScrollView"
+             Title="ScrollView">
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        <Grid.RowDefinitions>
+            <!--<RowDefinition x:Name="_1_AppTitle"  Height="1*"/>-->
+            <RowDefinition x:Name="_2_SpinningWheels" Height="4*"/>
+            <RowDefinition x:Name="_3_TickNumbers" Height="2*"/>
+
+            <RowDefinition x:Name="_5_GuessButton" Height="3*"/>
+
+            <RowDefinition x:Name="_7_Guess1" Height="2*"/>
+            <RowDefinition x:Name="_8_Guess2" Height="2*"/>
+            <RowDefinition x:Name="_9_Guess3" Height="2*"/>
+            <RowDefinition x:Name="_10_Guess4" Height="2*"/>
+            <RowDefinition x:Name="_11_Guess5" Height="2*"/>
+            <RowDefinition x:Name="_12_Guess6" Height="2*"/>
+            <RowDefinition x:Name="_13_Guess7" Height="2*"/>
+            <RowDefinition x:Name="_14_Guess8" Height="2*"/>
+            <RowDefinition x:Name="_15_Guess9" Height="2*"/>
+            <RowDefinition x:Name="_16_Guess10" Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="SpinningWheels" Grid.Row="0" Margin="12,0,12,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <!--<CarouselView x:Name="CaroView2" Grid.Row="0" Grid.Column="0">
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>swipe0.png</x:String>
+                        <x:String>swipe1.png</x:String>
+                        <x:String>swipe2.png</x:String>
+                        <x:String>swipe3.png</x:String>
+                        <x:String>swipe4.png</x:String>
+                        <x:String>swipe5.png</x:String>
+                        <x:String>swipe6.png</x:String>
+                        <x:String>swipe7.png</x:String>
+                        <x:String>swipe8.png</x:String>
+                        <x:String>swipe9.png</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CarouselView.ItemsLayout>
+
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="#E0E4FF" Padding="-25">
+                            <Image Source="{Binding .}" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>-->
+
+            <ScrollView Grid.Row="0" Grid.Column="0">
+              <StackLayout Spacing="-70">
+                  <Image Source="swipe1.png"  WidthRequest="150" HeightRequest="150" />
+                  <Image Source="swipe2.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe3.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe4.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe5.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe6.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe7.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe8.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe9.png"  WidthRequest="150" HeightRequest="150"/>
+                  <Image Source="swipe0.png"  WidthRequest="150" HeightRequest="150"/>
+               </StackLayout>
+            </ScrollView>
+
+        </Grid>
+    </Grid>
+</ContentPage>

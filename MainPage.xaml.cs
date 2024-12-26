@@ -19,6 +19,7 @@ namespace PFBv01
         private int Answer3;        
         public bool GameOver;
         public bool SwipeUp;
+        public bool GameAudioOn;
         private IAudioPlayer? SwipeUpSoundEffect;
         private IAudioPlayer? SwipeDownSoundEffect;
 
@@ -36,6 +37,7 @@ namespace PFBv01
             base.OnAppearing();
             // Add your code here to handle the event when the page appears
             AnswerHint();
+            GameAudioOn = Preferences.Default.Get("GameSoundOn", false);
             // woosh = up, click = down
             SwipeUpSoundEffect = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("Woosh.wav"));
             SwipeDownSoundEffect = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("RVBCLICK.wav"));            
@@ -45,14 +47,12 @@ namespace PFBv01
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            // Add your code here to handle the event when the page disappears
-            //	audioPlayer.Play();
+            
+            // Add your code here to handle the event when the page disappears            
             SwipeUpSoundEffect!.Dispose();
             SwipeUpSoundEffect = null;
             SwipeDownSoundEffect!.Dispose();
-            SwipeDownSoundEffect = null;
-
-            DisplayAlert("Goodbye", "The page is disappearing.", "OK");
+            SwipeDownSoundEffect = null;            
         }
 
         private void StartGame()
@@ -255,13 +255,15 @@ namespace PFBv01
                         // Handle swipe up
                         currentGuess = (currentGuess + 1) % 10; // Increment and wrap around at 10
                         //DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess{imageId}", "OK");
-                        SwipeUpSoundEffect!.Play();
+                        if (GameAudioOn)
+                            SwipeUpSoundEffect!.Play();
                         break;
                     case SwipeDirection.Down:
                         // Handle swipe down
                         currentGuess = (currentGuess - 1 + 10) % 10; // Decrement and wrap around at 0
                         //DisplayAlert("Swiped", $"You swiped down on SpinningWheelGuess{imageId}", "OK");
-                        SwipeDownSoundEffect!.Play();
+                        if (GameAudioOn)
+                            SwipeDownSoundEffect!.Play();
                         break;
                 }
 

@@ -27,5 +27,15 @@
      ContentTemplate="{DataTemplate local:About}"
      Route="About" />
 
+    <ShellContent
+    Title="CaroScroll"
+    ContentTemplate="{DataTemplate local:CaroScroll}"
+    Route="CaroScroll" />
+
+    <ShellContent
+    Title="ScrollView"
+    ContentTemplate="{DataTemplate local:ScrollView}"
+    Route="ScrollView" />
+
 
 </Shell>

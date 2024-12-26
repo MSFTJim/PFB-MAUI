@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PFBv01.CaroScroll"
+             Title="CaroScroll">
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        <Grid.RowDefinitions>
+            <!--<RowDefinition x:Name="_1_AppTitle"  Height="1*"/>-->
+            <RowDefinition x:Name="_2_SpinningWheels" Height="4*"/>
+            <RowDefinition x:Name="_3_TickNumbers" Height="2*"/>
+
+            <RowDefinition x:Name="_5_GuessButton" Height="3*"/>
+
+            <RowDefinition x:Name="_7_Guess1" Height="2*"/>
+            <RowDefinition x:Name="_8_Guess2" Height="2*"/>
+            <RowDefinition x:Name="_9_Guess3" Height="2*"/>
+            <RowDefinition x:Name="_10_Guess4" Height="2*"/>
+            <RowDefinition x:Name="_11_Guess5" Height="2*"/>
+            <RowDefinition x:Name="_12_Guess6" Height="2*"/>
+            <RowDefinition x:Name="_13_Guess7" Height="2*"/>
+            <RowDefinition x:Name="_14_Guess8" Height="2*"/>
+            <RowDefinition x:Name="_15_Guess9" Height="2*"/>
+            <RowDefinition x:Name="_16_Guess10" Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="SpinningWheels" Grid.Row="0" Margin="12,0,12,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <CarouselView x:Name="CaroView2" Grid.Row="0" Grid.Column="0"  >            
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>swipe0.png</x:String>
+                    <x:String>swipe1.png</x:String>
+                    <x:String>swipe2.png</x:String>
+                    <x:String>swipe3.png</x:String>
+                    <x:String>swipe4.png</x:String>
+                    <x:String>swipe5.png</x:String>
+                    <x:String>swipe6.png</x:String>
+                    <x:String>swipe7.png</x:String>
+                    <x:String>swipe8.png</x:String>
+                    <x:String>swipe9.png</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout  Orientation="Vertical" 
+                                    SnapPointsType="MandatorySingle"
+                                    SnapPointsAlignment="Center"
+                                    ItemSpacing="0" />
+            </CarouselView.ItemsLayout>
+            
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="#E0E4FF" Padding="-30">                                                
+                        <Image Source="{Binding .}" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        </Grid>
+    </Grid>
+
+</ContentPage>
