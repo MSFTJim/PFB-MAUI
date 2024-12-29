@@ -15,7 +15,7 @@ public partial class CaroScroll : ContentPage
     {
         var dog = CaroView1.CurrentItem;
         var cat = CaroView1.Position;
-        DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess {cat}", "OK");
+        DisplayAlert("Swiped", $"SpinningWheel1 Guess = {cat}", "OK");
     }
 
 
