@@ -33,39 +33,130 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            
+            <Border Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent"  Padding="0">            
+                <CarouselView x:Name="CaroView1" >
+                   <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>swipe0.png</x:String>
+                            <x:String>swipe1.png</x:String>
+                            <x:String>swipe2.png</x:String>
+                            <x:String>swipe3.png</x:String>
+                            <x:String>swipe4.png</x:String>
+                            <x:String>swipe5.png</x:String>
+                            <x:String>swipe6.png</x:String>
+                            <x:String>swipe7.png</x:String>
+                            <x:String>swipe8.png</x:String>
+                            <x:String>swipe9.png</x:String>
+                        </x:Array>
+                    </CarouselView.ItemsSource>            
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout  Orientation="Vertical" 
+                                            SnapPointsType="MandatorySingle"
+                                            SnapPointsAlignment="Center"
+                                            ItemSpacing="20" />
+                    </CarouselView.ItemsLayout>            
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="#E0E4FF" Padding="-30">                                                
+                                <Image Source="{Binding .}" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </Border>
 
-            <CarouselView x:Name="CaroView2" Grid.Row="0" Grid.Column="0"  >            
-            <CarouselView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>swipe0.png</x:String>
-                    <x:String>swipe1.png</x:String>
-                    <x:String>swipe2.png</x:String>
-                    <x:String>swipe3.png</x:String>
-                    <x:String>swipe4.png</x:String>
-                    <x:String>swipe5.png</x:String>
-                    <x:String>swipe6.png</x:String>
-                    <x:String>swipe7.png</x:String>
-                    <x:String>swipe8.png</x:String>
-                    <x:String>swipe9.png</x:String>
-                </x:Array>
-            </CarouselView.ItemsSource>
+            <CarouselView x:Name="CaroView2" Grid.Row="0" Grid.Column="1"  >
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>swipe0.png</x:String>
+                        <x:String>swipe1.png</x:String>
+                        <x:String>swipe2.png</x:String>
+                        <x:String>swipe3.png</x:String>
+                        <x:String>swipe4.png</x:String>
+                        <x:String>swipe5.png</x:String>
+                        <x:String>swipe6.png</x:String>
+                        <x:String>swipe7.png</x:String>
+                        <x:String>swipe8.png</x:String>
+                        <x:String>swipe9.png</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout  Orientation="Vertical" 
+                            SnapPointsType="MandatorySingle"
+                            SnapPointsAlignment="Center"
+                            ItemSpacing="0" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<StackLayout BackgroundColor="#E0E4FF" Padding="-30">-->
+                        <Border BackgroundColor="LightBlue"  Padding="0">
+                            <Image Source="{Binding .}" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
+                            <!--</StackLayout>-->
+                        </Border>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
             
-            <CarouselView.ItemsLayout>
-                <LinearItemsLayout  Orientation="Vertical" 
-                                    SnapPointsType="MandatorySingle"
-                                    SnapPointsAlignment="Center"
-                                    ItemSpacing="0" />
-            </CarouselView.ItemsLayout>
-            
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout BackgroundColor="#E0E4FF" Padding="-30">                                                
-                        <Image Source="{Binding .}" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
-                    </StackLayout>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
+            <CarouselView x:Name="CaroView3" Grid.Row="0" Grid.Column="2"  >
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>swipe0.png</x:String>
+                        <x:String>swipe1.png</x:String>
+                        <x:String>swipe2.png</x:String>
+                        <x:String>swipe3.png</x:String>
+                        <x:String>swipe4.png</x:String>
+                        <x:String>swipe5.png</x:String>
+                        <x:String>swipe6.png</x:String>
+                        <x:String>swipe7.png</x:String>
+                        <x:String>swipe8.png</x:String>
+                        <x:String>swipe9.png</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout  Orientation="Vertical" 
+                            SnapPointsType="MandatorySingle"
+                            SnapPointsAlignment="Center"
+                            ItemSpacing="0" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="#E0E4FF" Padding="-30">
+                            <Image Source="{Binding .}" Aspect="AspectFit" WidthRequest="150" HeightRequest="150" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+
+        </Grid> <!-- SpinningWheels-->
+
+        <Grid x:Name="GuessNewButtonGrid" Padding="3" Grid.Row="2" 
+             RowDefinitions="*" 
+             ColumnDefinitions=".75*,.02*,.29*" 
+             RowSpacing="10"
+             ColumnSpacing="10" >
+
+
+            <Button x:Name="MakeGuess" Text="Guess!" Grid.Column="0" 
+             FontSize="18" 
+             Clicked="MakeGuess_Click" 
+             HorizontalOptions="FillAndExpand" 
+             VerticalOptions="Center"                    
+             Padding="10"
+             Margin="35,0,35,0"/>
+
+            <Button x:Name="NewGame" Text="New Game" Grid.Column="2"
+             FontSize="18" 
+             
+             HorizontalOptions="FillAndExpand" 
+             VerticalOptions="Center"                    
+             Padding="5"
+             Margin="0,0,20,0"/>
+
         </Grid>
+        <!--end of GuessNewButtonGrid grid-->
+
     </Grid>
 
 </ContentPage>

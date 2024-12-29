@@ -115,8 +115,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">				
-		<Exec Command="powershell -Command &quot;'Last Build Date: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') | Out-File -FilePath Resources\Raw\AboutAssets.txt -Encoding utf8&quot;" />
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="powershell -Command &quot;'Last Build Date: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') | Out-File -FilePath Resources\Raw\AboutAssets.txt -Encoding utf8&quot;" />
 	</Target>
 
 
