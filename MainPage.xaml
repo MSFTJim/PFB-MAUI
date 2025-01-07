@@ -208,7 +208,7 @@
                     Padding="10"
                     Margin="35,0,35,0"/>      
 
-            <Button x:Name="NewGame" Text="New Game" Grid.Column="2"
+            <Button x:Name="NewGame" Text="New" Grid.Column="2"
                     FontSize="18" 
                     Clicked="NewGame_Click"
                     HorizontalOptions="FillAndExpand" 
