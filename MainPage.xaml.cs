@@ -191,7 +191,7 @@ namespace PFBv01
         public void AnswerHint()
         {
             if (GameOver) return;
-            bool ShowHint = Preferences.Default.Get("GameHintOn", false);
+            bool ShowHint = Preferences.Default.Get("LearnModeOn", false);
 
             if (ShowHint)
             {                
