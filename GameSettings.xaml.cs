@@ -10,15 +10,15 @@ public partial class GameSettings : ContentPage
 
         // Load the saved setting 
         GameSoundsCheckBox.IsChecked = LoadGameSoundsSetting();
-        GameHintCheckBox.IsChecked = LoadGameHintSetting();
+        LearnModeCheckBox.IsChecked = LoadLearnModeSetting();
    
     }
 
     
-    private void OnGameHintCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+    private void OnLearnModeCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
         // Save the setting 
-        SaveGameHintSetting(e.Value);
+        SaveLearnModeSetting(e.Value);
 
     }
 
@@ -40,14 +40,14 @@ public partial class GameSettings : ContentPage
         Preferences.Default.Set("GameSoundOn", isChecked);
     }
 
-    private bool LoadGameHintSetting()
+    private bool LoadLearnModeSetting()
     {
         // Load the setting from storage (e.g., Preferences, file, etc.)                
-        return Preferences.Default.Get("GameHintOn", false);
+        return Preferences.Default.Get("LearnModeOn", false);
     }
 
-    private void SaveGameHintSetting(bool isChecked)
+    private void SaveLearnModeSetting(bool isChecked)
     {
-        Preferences.Default.Set("GameHintOn", isChecked);
+        Preferences.Default.Set("LearnModeOn", isChecked);
     }
 }
