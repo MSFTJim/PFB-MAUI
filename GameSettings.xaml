@@ -25,9 +25,9 @@
 
         <!-- Add Label and CheckBox for turning on game hint -->
         <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Start" Margin="40,0,0,0">
-            <Label Text="Turn on Game Hint:" VerticalOptions="Center" HorizontalOptions="Start" />
-            <CheckBox x:Name="GameHintCheckBox" VerticalOptions="Center" HorizontalOptions="Start"
-                      CheckedChanged="OnGameHintCheckBoxCheckedChanged"/>
+            <Label Text="Turn Learn Mode on:" VerticalOptions="Center" HorizontalOptions="Start" />
+            <CheckBox x:Name="LearnModeCheckBox" VerticalOptions="Center" HorizontalOptions="Start"
+                      CheckedChanged="OnLearnModeCheckBoxCheckedChanged"/>
         </HorizontalStackLayout>
 
 

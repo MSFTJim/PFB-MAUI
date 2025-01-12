@@ -1,4 +1,5 @@
 ﻿//using static Android.Gestures.GestureOverlayView;
+//using AndroidX.CardView.Widget;
 using Microsoft.Maui.Controls;
 using Plugin.Maui.Audio;
 using System;
@@ -22,11 +23,31 @@ namespace PFBv01
         public bool GameAudioOn;
         private IAudioPlayer? SwipeUpSoundEffect;
         private IAudioPlayer? SwipeDownSoundEffect;
+        public List<string> SwipeWheelList { get; set; }
 
 
         public MainPage()
         {
+            
             InitializeComponent();
+            SwipeWheelList = new List<string>
+            {
+                "swipe0.png",
+                "swipe1.png",
+                "swipe2.png",
+                "swipe3.png",
+                "swipe4.png",
+                "swipe5.png",
+                "swipe6.png",
+                "swipe7.png",
+                "swipe8.png",
+                "swipe9.png"
+            };
+
+            SpinningWheelGuess1.ItemsSource = SwipeWheelList;
+            SpinningWheelGuess2.ItemsSource = SwipeWheelList;
+            SpinningWheelGuess3.ItemsSource = SwipeWheelList;
+            
             StartGame();
 
             
@@ -68,11 +89,12 @@ namespace PFBv01
 
             CurrentGuess1 = new Random().Next(0, 10);
             CurrentGuess2 = new Random().Next(0, 10);
-            CurrentGuess3 = new Random().Next(0, 10);    
+            CurrentGuess3 = new Random().Next(0, 10);
+            
+            SpinningWheelGuess3.Position = CurrentGuess3;
+            SpinningWheelGuess2.Position = CurrentGuess2;
+            SpinningWheelGuess1.Position = CurrentGuess1;
 
-            SpinningWheelGuess3.Source = $"swipe{CurrentGuess3}.png";
-            SpinningWheelGuess2.Source = $"swipe{CurrentGuess2}.png";
-            SpinningWheelGuess1.Source = $"swipe{CurrentGuess1}.png";            
 
             // Set Tick Marks for new game status
             ClearTickMarks();
@@ -169,7 +191,7 @@ namespace PFBv01
         public void AnswerHint()
         {
             if (GameOver) return;
-            bool ShowHint = Preferences.Default.Get("GameHintOn", false);
+            bool ShowHint = Preferences.Default.Get("LearnModeOn", false);
 
             if (ShowHint)
             {                
@@ -206,89 +228,72 @@ namespace PFBv01
         {
             // Add your event handler code here
            StartGame();
-        }
-
-        private void OnSwiped2(object sender, SwipedEventArgs e)
-        {
-            if (sender is Image image)
-            {
-                string imageId = image.StyleId;
-
-                switch (e.Direction)
-                {
-                    case SwipeDirection.Up:
-                        // Handle swipe up                        
-                        DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess{imageId}", "OK");
-                        break;
-                    case SwipeDirection.Down:
-                        // Handle swipe down                        
-                        DisplayAlert("Swiped", $"You swiped down on SpinningWheelGuess{imageId}", "OK");
-                        break;
-                }
-            }
-        }
+        }     
 
 
-        private void OnSwiped(object sender, SwipedEventArgs e)
-        {
-            if (sender is Image image)
-            {
-                string imageId = image.StyleId;
-                int currentGuess = 0;
+        //private void OnSwiped(object sender, SwipedEventArgs e)
+        //{
+        //    if (sender is Image image)
+        //    {
+        //        string imageId = image.StyleId;
+        //        int currentGuess = 0;
 
-                switch (imageId)
-                {
-                    case "1":
-                        currentGuess = CurrentGuess1;
-                        break;
-                    case "2":
-                        currentGuess = CurrentGuess2;
-                        break;
-                    case "3":
-                        currentGuess = CurrentGuess3;
-                        break;
-                }
+        //        switch (imageId)
+        //        {
+        //            case "1":
+        //                currentGuess = CurrentGuess1;
+        //                break;
+        //            case "2":
+        //                currentGuess = CurrentGuess2;
+        //                break;
+        //            case "3":
+        //                currentGuess = CurrentGuess3;
+        //                break;
+        //        }
 
-                switch (e.Direction)
-                {
-                    case SwipeDirection.Up:
-                        // Handle swipe up
-                        currentGuess = (currentGuess + 1) % 10; // Increment and wrap around at 10
-                        //DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess{imageId}", "OK");
-                        if (GameAudioOn)
-                            SwipeUpSoundEffect!.Play();
-                        break;
-                    case SwipeDirection.Down:
-                        // Handle swipe down
-                        currentGuess = (currentGuess - 1 + 10) % 10; // Decrement and wrap around at 0
-                        //DisplayAlert("Swiped", $"You swiped down on SpinningWheelGuess{imageId}", "OK");
-                        if (GameAudioOn)
-                            SwipeDownSoundEffect!.Play();
-                        break;
-                }
+        //        switch (e.Direction)
+        //        {
+        //            case SwipeDirection.Up:
+        //                // Handle swipe up
+        //                currentGuess = (currentGuess + 1) % 10; // Increment and wrap around at 10
+        //                //DisplayAlert("Swiped", $"You swiped up on SpinningWheelGuess{imageId}", "OK");
+        //                if (GameAudioOn)
+        //                    SwipeUpSoundEffect!.Play();
+        //                break;
+        //            case SwipeDirection.Down:
+        //                // Handle swipe down
+        //                currentGuess = (currentGuess - 1 + 10) % 10; // Decrement and wrap around at 0
+        //                //DisplayAlert("Swiped", $"You swiped down on SpinningWheelGuess{imageId}", "OK");
+        //                if (GameAudioOn)
+        //                    SwipeDownSoundEffect!.Play();
+        //                break;
+        //        }
 
-                // Update the corresponding CurrentGuess variable and image source
-                switch (imageId)
-                {
-                    case "1":
-                        CurrentGuess1 = currentGuess;
-                        SpinningWheelGuess1.Source = $"swipe{CurrentGuess1}.png";
-                        break;
-                    case "2":
-                        CurrentGuess2 = currentGuess;
-                        SpinningWheelGuess2.Source = $"swipe{CurrentGuess2}.png";
-                        break;
-                    case "3":
-                        CurrentGuess3 = currentGuess;
-                        SpinningWheelGuess3.Source = $"swipe{CurrentGuess3}.png";
-                        break;
-                }
-            }
-        }
+        //        // Update the corresponding CurrentGuess variable and image source
+        //        switch (imageId)
+        //        {
+        //            case "1":
+        //                CurrentGuess1 = currentGuess;
+        //                SpinningWheelGuess1.Source = $"swipe{CurrentGuess1}.png";
+        //                break;
+        //            case "2":
+        //                CurrentGuess2 = currentGuess;
+        //                SpinningWheelGuess2.Source = $"swipe{CurrentGuess2}.png";
+        //                break;
+        //            case "3":
+        //                CurrentGuess3 = currentGuess;
+        //                SpinningWheelGuess3.Source = $"swipe{CurrentGuess3}.png";
+        //                break;
+        //        }
+        //    }
+        //}
 
         private void MakeGuess_Click(object sender, EventArgs e)
         {
             //DisplayAlert("Guess", $"You guessed G1: {CurrentGuess1} - G2: {CurrentGuess2} - G3: {CurrentGuess3}", "OK");
+            CurrentGuess1 = SpinningWheelGuess1.Position;
+            CurrentGuess2 = SpinningWheelGuess2.Position;
+            CurrentGuess3 = SpinningWheelGuess3.Position;
 
             string CurrentAnswer;
 
@@ -312,14 +317,14 @@ namespace PFBv01
 
             if (GuessNumber == 10 || CurrentAnswer == "FFF")
             {
-                CurrentGuess1 = Answer1;                
-                SpinningWheelGuess1.Source = $"swipe{CurrentGuess1}.png";                
+                CurrentGuess1 = Answer1;                                
+                SpinningWheelGuess1.Position = Answer1;
 
                 CurrentGuess2 = Answer2;
-                SpinningWheelGuess2.Source = $"swipe{CurrentGuess2}.png";                
+                SpinningWheelGuess2.Position = Answer2;
 
                 CurrentGuess3 = Answer3;
-                SpinningWheelGuess3.Source = $"swipe{CurrentGuess3}.png";
+                SpinningWheelGuess3.Position = Answer3;
 
                 if (CurrentAnswer == "FFF")
                 {
