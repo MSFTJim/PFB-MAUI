@@ -21,6 +21,7 @@ namespace PFBv01
         public bool GameOver;
         public bool SwipeUp;
         public bool GameAudioOn;
+        
         private IAudioPlayer? SwipeUpSoundEffect;
         private IAudioPlayer? SwipeDownSoundEffect;
         public List<string> SwipeWheelList { get; set; }
@@ -288,7 +289,7 @@ namespace PFBv01
         //    }
         //}
 
-        private void MakeGuess_Click(object sender, EventArgs e)
+        private async void MakeGuess_Click(object sender, EventArgs e)
         {
             //DisplayAlert("Guess", $"You guessed G1: {CurrentGuess1} - G2: {CurrentGuess2} - G3: {CurrentGuess3}", "OK");
             CurrentGuess1 = SpinningWheelGuess1.Position;
@@ -325,26 +326,31 @@ namespace PFBv01
 
                 CurrentGuess3 = Answer3;
                 SpinningWheelGuess3.Position = Answer3;
+                bool DidYouWin = false;
 
                 if (CurrentAnswer == "FFF")
                 {
                     //MessageBox.Show("Congratulations!!.  You guessed the right numbers within 10 tries!!"); 
-                    DisplayAlert("Congratulations!!", $"You guessed the right numbers in {GuessNumber} tries!!", "OK");
+                    await DisplayAlert("Congratulations!!", $"You guessed the right numbers in {GuessNumber} tries!!", "OK");
                     //LayoutYouWon.Visibility = Visibility.Visible;
                     //Winner.Begin();
-                    GuessNumber = 10;
-
+                    DidYouWin = true;
+                    UpdateStats(GuessNumber, DidYouWin);
                 }
                 else
                 {
-                    DisplayAlert("You lost!!", $"You DID NOT guess the right numbers within 10 tries!!", "OK");
+                    await DisplayAlert("You lost!!", $"You DID NOT guess the right numbers within 10 tries!!", "OK");
                     //LayoutYouLost.Visibility = Visibility.Visible;
                     //Explode.Begin();
                     //VibrationDevice pfbVibrationonLoss = VibrationDevice.GetDefault();
                     //pfbVibrationonLoss.Vibrate(TimeSpan.FromSeconds(1));
-                    GuessNumber = 10;
+                    DidYouWin = false;
+                    UpdateStats(GuessNumber, DidYouWin);
                 }
+                
+                await DisplayGameStats();
 
+                GuessNumber = 10;
                 GameOver = true;
                 MakeGuess.IsEnabled = false;
             }
@@ -517,6 +523,40 @@ namespace PFBv01
                     DisplayAlert("Boo in Case!", "Improbability error.  How did you get here??", "OK");
                     break;
             }
+        }
+
+
+        private void UpdateStats(int guessNumber, bool didYouWin)
+        {
+            // TODO: Implement the logic to update game statistics            
+            int statsGamesPlayed = Preferences.Default.Get("Games", 0);
+            statsGamesPlayed++;
+            Preferences.Default.Set("Games", statsGamesPlayed);          
+            
+            if (didYouWin)
+            {
+                int statsGamesWon = Preferences.Default.Get("Wins", 0);
+                statsGamesWon++;
+                Preferences.Default.Set("Wins", statsGamesWon);
+            }
+            else
+            {
+                int statsGamesLost = Preferences.Default.Get("Losses", 0);
+                statsGamesLost++;
+                Preferences.Default.Set("Losses", statsGamesLost);
+            }
+
+
+        }
+        private async Task DisplayGameStats()
+        {
+            int statsGamesPlayed = Preferences.Default.Get("Games", 0);
+            int statsGamesWon = Preferences.Default.Get("Wins", 0);
+            int statsGamesLost = Preferences.Default.Get("Losses", 0);
+
+            string message = $"Games Played: {statsGamesPlayed}\nGames Won: {statsGamesWon}\nGames Lost: {statsGamesLost}";
+            await DisplayAlert("Game Stats", message, "OK");
+            
         }
 
     }  // end class MainPage

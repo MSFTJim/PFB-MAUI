@@ -28,6 +28,11 @@
      Route="About" />
 
     <ShellContent
+    Title="Statistics"
+    ContentTemplate="{DataTemplate local:Stats}"
+    Route="Stats" />
+
+    <ShellContent
     Title="CaroScroll"
     ContentTemplate="{DataTemplate local:CaroScroll}"
     Route="CaroScroll" />
