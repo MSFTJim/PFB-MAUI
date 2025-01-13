@@ -1,5 +1,6 @@
 ﻿//using static Android.Gestures.GestureOverlayView;
 //using AndroidX.CardView.Widget;
+//using Android.OS;
 using Microsoft.Maui.Controls;
 using Plugin.Maui.Audio;
 using System;
@@ -57,9 +58,11 @@ namespace PFBv01
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            
             // Add your code here to handle the event when the page appears
             AnswerHint();
             GameAudioOn = Preferences.Default.Get("GameSoundOn", false);
+
             // woosh = up, click = down
             SwipeUpSoundEffect = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("Woosh.wav"));
             SwipeDownSoundEffect = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("RVBCLICK.wav"));            
@@ -229,6 +232,7 @@ namespace PFBv01
         {
             // Add your event handler code here
            StartGame();
+           AnswerHint();
         }     
 
 
@@ -528,33 +532,89 @@ namespace PFBv01
 
         private void UpdateStats(int guessNumber, bool didYouWin)
         {
-            // TODO: Implement the logic to update game statistics            
-            int statsGamesPlayed = Preferences.Default.Get("Games", 0);
+            int statsGamesPlayed = Preferences.Default.Get(Constants.Games, 0);
             statsGamesPlayed++;
-            Preferences.Default.Set("Games", statsGamesPlayed);          
+            Preferences.Default.Set(Constants.Games, statsGamesPlayed);          
             
             if (didYouWin)
             {
-                int statsGamesWon = Preferences.Default.Get("Wins", 0);
+                int statsGamesWon = Preferences.Default.Get(Constants.Wins, 0);
                 statsGamesWon++;
-                Preferences.Default.Set("Wins", statsGamesWon);
+                Preferences.Default.Set(Constants.Wins, statsGamesWon);
+
+                switch (guessNumber)
+                {
+                    case 1:
+                        int guessIn1Try = Preferences.Default.Get(Constants.GuessIn1Try, 0);
+                        guessIn1Try++;
+                        Preferences.Default.Set(Constants.GuessIn1Try, guessIn1Try);
+                        break;
+                    case 2:
+                        int guessIn2Tries = Preferences.Default.Get(Constants.GuessIn2Tries, 0);
+                        guessIn2Tries++;
+                        Preferences.Default.Set(Constants.GuessIn2Tries, guessIn2Tries);
+                        break;
+                    case 3:
+                        int guessIn3Tries = Preferences.Default.Get(Constants.GuessIn3Tries, 0);
+                        guessIn3Tries++;
+                        Preferences.Default.Set(Constants.GuessIn3Tries, guessIn3Tries);
+                        break;
+                    case 4:
+                        int guessIn4Tries = Preferences.Default.Get(Constants.GuessIn4Tries, 0);
+                        guessIn4Tries++;
+                        Preferences.Default.Set(Constants.GuessIn4Tries, guessIn4Tries);
+                        break;
+                    case 5:
+                        int guessIn5Tries = Preferences.Default.Get(Constants.GuessIn5Tries, 0);
+                        guessIn5Tries++;
+                        Preferences.Default.Set(Constants.GuessIn5Tries, guessIn5Tries);
+                        break;
+                    case 6:
+                        int guessIn6Tries = Preferences.Default.Get(Constants.GuessIn6Tries, 0);
+                        guessIn6Tries++;
+                        Preferences.Default.Set(Constants.GuessIn6Tries, guessIn6Tries);
+                        break;
+                    case 7:
+                        int guessIn7Tries = Preferences.Default.Get(Constants.GuessIn7Tries, 0);
+                        guessIn7Tries++;
+                        Preferences.Default.Set(Constants.GuessIn7Tries, guessIn7Tries);
+                        break;
+                    case 8:
+                        int guessIn8Tries = Preferences.Default.Get(Constants.GuessIn8Tries, 0);
+                        guessIn8Tries++;
+                        Preferences.Default.Set(Constants.GuessIn8Tries, guessIn8Tries);
+                        break;
+                    case 9:
+                        int guessIn9Tries = Preferences.Default.Get(Constants.GuessIn9Tries, 0);
+                        guessIn9Tries++;
+                        Preferences.Default.Set(Constants.GuessIn9Tries, guessIn9Tries);
+                        break;
+                    case 10:
+                        int guessIn10Tries = Preferences.Default.Get(Constants.GuessIn10Tries, 0);
+                        guessIn10Tries++;
+                        Preferences.Default.Set(Constants.GuessIn10Tries, guessIn10Tries);
+                        break;
+                    default:
+                        break;
+                }
+
             }
             else
             {
-                int statsGamesLost = Preferences.Default.Get("Losses", 0);
+                int statsGamesLost = Preferences.Default.Get(Constants.Losses, 0);
                 statsGamesLost++;
-                Preferences.Default.Set("Losses", statsGamesLost);
+                Preferences.Default.Set(Constants.Losses, statsGamesLost);
             }
 
 
         }
         private async Task DisplayGameStats()
         {
-            int statsGamesPlayed = Preferences.Default.Get("Games", 0);
-            int statsGamesWon = Preferences.Default.Get("Wins", 0);
-            int statsGamesLost = Preferences.Default.Get("Losses", 0);
+            int statsGamesPlayed = Preferences.Default.Get(Constants.Games, 0);
+            int statsGamesWon = Preferences.Default.Get(Constants.Wins, 0);
+            int statsGamesLost = Preferences.Default.Get(Constants.Losses, 0);
 
-            string message = $"Games Played: {statsGamesPlayed}\nGames Won: {statsGamesWon}\nGames Lost: {statsGamesLost}";
+            string message = $"Games: {statsGamesPlayed}\nWon  : {statsGamesWon}\nLost : {statsGamesLost}";
             await DisplayAlert("Game Stats", message, "OK");
             
         }

@@ -31,6 +31,71 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
+        <!-- Indented labels for wins in various tries -->
+        <VerticalStackLayout Padding="20,0,0,0">
+            <Label 
+                x:Name="GuessIn1TryLabel"
+                Text="Guess in 1 try: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn2TriesLabel"
+                Text="Guess in 2 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn3TriesLabel"
+                Text="Guess in 3 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn4TriesLabel"
+                Text="Guess in 4 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn5TriesLabel"
+                Text="Guess in 5 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn6TriesLabel"
+                Text="Guess in 6 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn7TriesLabel"
+                Text="Guess in 7 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn8TriesLabel"
+                Text="Guess in 8 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn9TriesLabel"
+                Text="Guess in 9 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+            <Label 
+                x:Name="GuessIn10TriesLabel"
+                Text="Guess in 10 tries: 0"
+                FontSize="16"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start" />
+        </VerticalStackLayout>
+
+
         <Label 
             x:Name="LossesLabel"
             Text="Losses: 0"
