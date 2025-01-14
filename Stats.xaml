@@ -10,15 +10,21 @@
             FontSize="18"            
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
 
-        <micro:ChartView x:Name="chartWinLoss"        
+        <Label  x:Name="totalGamesPlayedLabel"
+                Text="Total games played:"
+                FontSize="14"            
+                HorizontalOptions="Center" />
+        
+        <micro:ChartView x:Name="chartWinLoss"                            
                  VerticalOptions="FillAndExpand" 
                  HorizontalOptions="FillAndExpand" 
-                 HeightRequest="250" 
+                 HeightRequest="200" 
                  WidthRequest="400" 
                  BackgroundColor="White" 
-                 Margin="10" />
-
+                 Margin="5,0,5,5" />
+        
         <!-- Add a spacer solid black line -->
         <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />
         <!-- Add a spacer blank line -->
@@ -29,8 +35,8 @@
         <micro:ChartView x:Name="chartGuesses"        
                      VerticalOptions="FillAndExpand" 
                      HorizontalOptions="FillAndExpand" 
-                     HeightRequest="500" 
-                     WidthRequest="600" 
+                     HeightRequest="400" 
+                     WidthRequest="500" 
                      BackgroundColor="White" 
                      Margin="10" />
 

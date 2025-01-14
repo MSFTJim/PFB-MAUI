@@ -29,6 +29,9 @@ public partial class Stats : ContentPage
     {
         // Get the number of wins and losses from the Preferences
         int games = Preferences.Default.Get(Constants.Games, 0);
+        // Update the totalGamesPlayedLabel with the games integer
+        totalGamesPlayedLabel.Text = $"Total games played: {games}";
+
         int wins = Preferences.Default.Get(Constants.Wins, 0);
         int losses = Preferences.Default.Get(Constants.Losses, 0);
 
