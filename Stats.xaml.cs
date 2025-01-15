@@ -1,7 +1,4 @@
-
-using Microcharts;
-using Microcharts.Maui;
-using SkiaSharp;
+using Syncfusion.Maui.Charts;
 
 namespace PFBv01;
 
@@ -16,14 +13,10 @@ public partial class Stats : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        ShowStats();
-    }
-
-    private void ShowStats()
-    {
         ChartWinsLosses();
         ChartWinTimes();
-    }
+        
+    }    
 
     private void ChartWinsLosses()
     {
@@ -31,29 +24,29 @@ public partial class Stats : ContentPage
         int games = Preferences.Default.Get(Constants.Games, 0);
         int wins = Preferences.Default.Get(Constants.Wins, 0);
         int losses = Preferences.Default.Get(Constants.Losses, 0);
+        
 
-        ChartEntry[] wins_losses = new[]
+        // Create a data source for the PieSeries
+        var data = new List<ChartDataPoint>
         {
-            new ChartEntry(wins)
-            {
-                Label = "Wins",
-                ValueLabel = wins.ToString(),
-                ValueLabelColor = SKColor.Parse("#7DDA58"),
-                Color = SKColor.Parse("#7DDA58")
-            },
-            new ChartEntry(losses)
-            {
-                Label = "Losses",
-                ValueLabel = losses.ToString(),
-                ValueLabelColor = SKColor.Parse("#D20103"),
-                Color = SKColor.Parse("#D20103")
-            }
+            new ChartDataPoint("Wins", wins),
+            new ChartDataPoint("Losses", losses)
         };
 
-        chartWinLoss.Chart = new PieChart
+        // Create an instance of PieSeries
+        PieSeries series = new PieSeries
         {
-            Entries = wins_losses
+            ItemsSource = data,
+            XBindingPath = "Category",
+            YBindingPath = "Value",
+            ShowDataLabels = true
         };
+
+        // Clear existing series and add the new series to the chart
+        WinLossChart.Series.Clear();
+        WinLossChart.Series.Add(series);
+        WinLossChart.Title = $"Total games played: {games}";
+
     }
 
     private async void ResetStats_Click(object sender, EventArgs e)
@@ -63,7 +56,8 @@ public partial class Stats : ContentPage
         {
             Preferences.Default.Clear();
             await DisplayAlert("Reset Successful", "Your game statistics have been reset.", "OK");
-            ShowStats();
+            ChartWinsLosses();
+            ChartWinTimes();
         }
     }
 
@@ -95,75 +89,45 @@ public partial class Stats : ContentPage
         int guessIn9Tries = Preferences.Default.Get(Constants.GuessIn9Tries, 0);
         int guessIn10Tries = Preferences.Default.Get(Constants.GuessIn10Tries, 0);
 
-        ChartEntry[] GuessEntries = new[]
+        var data = new List<ChartDataPoint>
         {
-            new ChartEntry(guessIn1Try)
-            {
-                Label = "1 Try",
-                ValueLabel = guessIn1Try.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn2Tries)
-            {
-                Label = "2 Tries",
-                ValueLabel = guessIn2Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn3Tries)
-            {
-                Label = "3 Tries",
-                ValueLabel = guessIn3Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn4Tries)
-            {
-                Label = "4 Tries",
-                ValueLabel = guessIn4Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn5Tries)
-            {
-                Label = "5 Tries",
-                ValueLabel = guessIn5Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn6Tries)
-            {
-                Label = "6 Tries",
-                ValueLabel = guessIn6Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn7Tries)
-            {
-                Label = "7 Tries",
-                ValueLabel = guessIn7Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn8Tries)
-            {
-                Label = "8 Tries",
-                ValueLabel = guessIn8Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn9Tries)
-            {
-                Label = "9 Tries",
-                ValueLabel = guessIn9Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            },
-            new ChartEntry(guessIn10Tries)
-            {
-                Label = "10 Tries",
-                ValueLabel = guessIn10Tries.ToString(),
-                Color = SKColor.Parse("#0000ff")
-            }
+            new ChartDataPoint("1 Try", guessIn1Try),
+            new ChartDataPoint("2 Tries", guessIn2Tries),
+            new ChartDataPoint("3 Tries", guessIn3Tries),
+            new ChartDataPoint("4 Tries", guessIn4Tries),
+            new ChartDataPoint("5 Tries", guessIn5Tries),
+            new ChartDataPoint("6 Tries", guessIn6Tries),
+            new ChartDataPoint("7 Tries", guessIn7Tries),
+            new ChartDataPoint("8 Tries", guessIn8Tries),
+            new ChartDataPoint("9 Tries", guessIn9Tries),
+            new ChartDataPoint("10 Tries", guessIn10Tries)
         };
 
-        chartGuesses.Chart = new BarChart
+        var series = new ColumnSeries
         {
-            Entries = GuessEntries
+            ItemsSource = data,
+            ShowDataLabels=true,
+            XBindingPath = "Category",
+            YBindingPath = "Value",
+            Fill = new SolidColorBrush(Color.FromArgb("#000000"))
         };
+
+        chartWinTimes.Series.Clear();
+        chartWinTimes.Series.Add(series);
+
     }
 
 
+}
+
+public class ChartDataPoint
+{
+    public string Category { get; set; }
+    public double Value { get; set; }
+
+    public ChartDataPoint(string category, double value)
+    {
+        Category = category;
+        Value = value;
+    }
 }

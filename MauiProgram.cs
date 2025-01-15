@@ -1,5 +1,5 @@
-﻿using Microcharts.Maui;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace PFBv01
 {
@@ -9,8 +9,9 @@ namespace PFBv01
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>()
-                .UseMicrocharts()
+                .UseMauiApp<App>()      
+                .ConfigureSyncfusionCore()
+
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

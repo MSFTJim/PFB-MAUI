@@ -1,40 +1,67 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:PFBv01"
              x:Class="PFBv01.Stats"
              Title="Stats">
-    <VerticalStackLayout>
+    <ScrollView>        
+        <VerticalStackLayout>
         <Label 
             Text="View and Reset your game statistics"
             FontSize="18"            
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-        <micro:ChartView x:Name="chartWinLoss"        
-                 VerticalOptions="FillAndExpand" 
-                 HorizontalOptions="FillAndExpand" 
-                 HeightRequest="250" 
-                 WidthRequest="400" 
-                 BackgroundColor="White" 
-                 Margin="10" />
-
+            HorizontalOptions="Center" />     
         <!-- Add a spacer solid black line -->
         <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />
         <!-- Add a spacer blank line -->
-        <!--<Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />-->       
+        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />            
 
-       
+            <chart:SfCircularChart x:Name="WinLossChart" Title="Games Played">          
+            <chart:PieSeries  
+                    XBindingPath="Product" 
+                    YBindingPath="SalesRate"
+                    ShowDataLabels="True"
+                    Radius="0.8">
+                <chart:PieSeries.PaletteBrushes>
+                    <SolidColorBrush Color="#7DDA58" />
+                    <!-- Color for Wins -->
+                    <SolidColorBrush Color="#D20103" />
+                    <!-- Color for Losses -->
+                </chart:PieSeries.PaletteBrushes>
+            </chart:PieSeries>
 
-        <micro:ChartView x:Name="chartGuesses"        
-                     VerticalOptions="FillAndExpand" 
-                     HorizontalOptions="FillAndExpand" 
-                     HeightRequest="500" 
-                     WidthRequest="600" 
-                     BackgroundColor="White" 
-                     Margin="10" />
+            <chart:SfCircularChart.Legend>
+                <chart:ChartLegend>
+                    <chart:ChartLegend.LabelStyle>
+                        <chart:ChartLegendLabelStyle TextColor="Black" Margin="5" FontSize="18" FontAttributes="Bold" />
+                    </chart:ChartLegend.LabelStyle>
+                </chart:ChartLegend>
+            </chart:SfCircularChart.Legend>
+
+        </chart:SfCircularChart>
 
 
+
+        <chart:SfCartesianChart x:Name="chartWinTimes"
+                                Title="Guess Win Distribution"                                
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                         
+                                BackgroundColor="White"
+                                Margin="10">            
+
+            <chart:SfCartesianChart.XAxes>
+                <chart:CategoryAxis />
+            </chart:SfCartesianChart.XAxes>
+
+            <chart:SfCartesianChart.YAxes>
+                <chart:NumericalAxis />
+            </chart:SfCartesianChart.YAxes>
+        </chart:SfCartesianChart>
+        
+        
+        
         <!-- Add a spacer blank line -->
         <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
         <!-- Add a spacer blank line -->
@@ -52,8 +79,6 @@
              Margin="5" />
         </HorizontalStackLayout>
 
-
-
-
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
