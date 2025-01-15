@@ -22,7 +22,7 @@
                 XBindingPath="Category" 
                 YBindingPath="Value"
                 ShowDataLabels="True"
-                EnableTooltip="True"
+                EnableTooltip="False"
                 Radius="0.8">
                 
                 <chart:PieSeries.PaletteBrushes>
@@ -33,9 +33,9 @@
                 </chart:PieSeries.PaletteBrushes>
                 
                 <chart:PieSeries.DataLabelSettings>
-                    <chart:CircularDataLabelSettings LabelPosition="Inside" >
+                    <chart:CircularDataLabelSettings LabelPosition="Outside" >
                         <chart:CircularDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle TextColor="White" />
+                            <chart:ChartDataLabelStyle TextColor="Black" />
                         </chart:CircularDataLabelSettings.LabelStyle>
                     </chart:CircularDataLabelSettings>
                 </chart:PieSeries.DataLabelSettings>
