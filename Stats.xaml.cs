@@ -30,7 +30,8 @@ public partial class Stats : ContentPage
         var pieData = new List<ChartDataPoint>
         {
             new ChartDataPoint("Wins", wins),
-            new ChartDataPoint("Losses", losses)
+            new ChartDataPoint("Losses", losses)            
+
         };
 
         // Set the ItemsSource for the PieSeries
@@ -43,14 +44,13 @@ public partial class Stats : ContentPage
             new SolidColorBrush(Color.FromArgb("#7DDA58")), // Color for Wins
             new SolidColorBrush(Color.FromArgb("#D20103"))  // Color for Losses
         };
+        // Update the chart title
+        WinLossChart.Title = $"Total games played: {games}";
 
         // calculate win percentage
         double winPercentage = (double)wins / games * 100;
-        string formattedWinPercentage = winPercentage.ToString("F1");
-
-        // Update the chart title
-        WinLossChart.Title = $"Total games played: {games}, Win %: {formattedWinPercentage}";
-
+        string formattedWinPercentage = winPercentage.ToString("F1");        
+        winPercent.Text = $"Win %: {formattedWinPercentage}";
     }
 
     private async void ResetStats_Click(object sender, EventArgs e)
