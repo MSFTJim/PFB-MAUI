@@ -27,25 +27,29 @@ public partial class Stats : ContentPage
         
 
         // Create a data source for the PieSeries
-        var data = new List<ChartDataPoint>
+        var pieData = new List<ChartDataPoint>
         {
             new ChartDataPoint("Wins", wins),
             new ChartDataPoint("Losses", losses)
         };
 
-        // Create an instance of PieSeries
-        PieSeries series = new PieSeries
+        // Set the ItemsSource for the PieSeries
+        var pieSeries = (PieSeries)WinLossChart.Series[0];
+        pieSeries.ItemsSource = pieData;
+
+        // Set the colors for the PieSeries
+        pieSeries.PaletteBrushes = new List<Brush>
         {
-            ItemsSource = data,
-            XBindingPath = "Category",
-            YBindingPath = "Value",
-            ShowDataLabels = true
+            new SolidColorBrush(Color.FromArgb("#7DDA58")), // Color for Wins
+            new SolidColorBrush(Color.FromArgb("#D20103"))  // Color for Losses
         };
 
-        // Clear existing series and add the new series to the chart
-        WinLossChart.Series.Clear();
-        WinLossChart.Series.Add(series);
-        WinLossChart.Title = $"Total games played: {games}";
+        // calculate win percentage
+        double winPercentage = (double)wins / games * 100;
+        string formattedWinPercentage = winPercentage.ToString("F1");
+
+        // Update the chart title
+        WinLossChart.Title = $"Total games played: {games}, Win %: {formattedWinPercentage}";
 
     }
 
@@ -91,25 +95,39 @@ public partial class Stats : ContentPage
 
         var data = new List<ChartDataPoint>
         {
-            new ChartDataPoint("1 Try", guessIn1Try),
-            new ChartDataPoint("2 Tries", guessIn2Tries),
-            new ChartDataPoint("3 Tries", guessIn3Tries),
-            new ChartDataPoint("4 Tries", guessIn4Tries),
-            new ChartDataPoint("5 Tries", guessIn5Tries),
-            new ChartDataPoint("6 Tries", guessIn6Tries),
-            new ChartDataPoint("7 Tries", guessIn7Tries),
-            new ChartDataPoint("8 Tries", guessIn8Tries),
-            new ChartDataPoint("9 Tries", guessIn9Tries),
-            new ChartDataPoint("10 Tries", guessIn10Tries)
+            new ChartDataPoint("1", guessIn1Try),
+            new ChartDataPoint("2", guessIn2Tries),
+            new ChartDataPoint("3", guessIn3Tries),
+            new ChartDataPoint("4", guessIn4Tries),
+            new ChartDataPoint("5", guessIn5Tries),
+            new ChartDataPoint("6", guessIn6Tries),
+            new ChartDataPoint("7", guessIn7Tries),
+            new ChartDataPoint("8", guessIn8Tries),
+            new ChartDataPoint("9", guessIn9Tries),
+            new ChartDataPoint("10", guessIn10Tries)
         };
+
+
 
         var series = new ColumnSeries
         {
             ItemsSource = data,
-            ShowDataLabels=true,
+            ShowDataLabels = true,
             XBindingPath = "Category",
-            YBindingPath = "Value",
-            Fill = new SolidColorBrush(Color.FromArgb("#000000"))
+            YBindingPath = "Value",            
+            PaletteBrushes = new List<Brush>
+            {
+                new SolidColorBrush(Color.FromArgb("#FF0000")), // Red
+                new SolidColorBrush(Color.FromArgb("#00FF00")), // Green
+                new SolidColorBrush(Color.FromArgb("#0000FF")), // Blue
+                new SolidColorBrush(Color.FromArgb("#FFFF00")), // Yellow
+                new SolidColorBrush(Color.FromArgb("#FF00FF")), // Magenta
+                new SolidColorBrush(Color.FromArgb("#00FFFF")), // Cyan
+                new SolidColorBrush(Color.FromArgb("#FFA500")), // Orange
+                new SolidColorBrush(Color.FromArgb("#800080")), // Purple
+                new SolidColorBrush(Color.FromArgb("#008000")), // Dark Green
+                new SolidColorBrush(Color.FromArgb("#000080"))  // Navy
+            }
         };
 
         chartWinTimes.Series.Clear();

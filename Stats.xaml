@@ -5,80 +5,93 @@
              xmlns:local="clr-namespace:PFBv01"
              x:Class="PFBv01.Stats"
              Title="Stats">
-    <ScrollView>        
-        <VerticalStackLayout>
-        <Label 
-            Text="View and Reset your game statistics"
-            FontSize="18"            
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />     
-        <!-- Add a spacer solid black line -->
-        <BoxView HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />
-        <!-- Add a spacer blank line -->
-        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />            
 
-            <chart:SfCircularChart x:Name="WinLossChart" Title="Games Played">          
-            <chart:PieSeries  
-                    XBindingPath="Product" 
-                    YBindingPath="SalesRate"
-                    ShowDataLabels="True"
-                    Radius="0.8">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent" >
+        <Grid.RowDefinitions>
+            <!--<RowDefinition x:Name="_1_AppTitle"  Height="1*"/>-->
+            <RowDefinition x:Name="_0_PieChart"   Height="3*"/>
+            <RowDefinition x:Name="_1_BlackLine"  Height="*"/>
+            <RowDefinition x:Name="_2_BarChart"   Height="4*"/>
+            <RowDefinition x:Name="_3_ButtonLine" Height="2*"/>            
+        </Grid.RowDefinitions>
+
+        <chart:SfCircularChart x:Name="WinLossChart" Grid.Row="0" Title="Games Played">
+            
+            <chart:PieSeries                                  
+                XBindingPath="Category" 
+                YBindingPath="Value"
+                ShowDataLabels="True"
+                EnableTooltip="True"
+                Radius="0.8">
+                
                 <chart:PieSeries.PaletteBrushes>
                     <SolidColorBrush Color="#7DDA58" />
                     <!-- Color for Wins -->
                     <SolidColorBrush Color="#D20103" />
                     <!-- Color for Losses -->
                 </chart:PieSeries.PaletteBrushes>
+                
+                <chart:PieSeries.DataLabelSettings>
+                    <chart:CircularDataLabelSettings LabelPosition="Inside" >
+                        <chart:CircularDataLabelSettings.LabelStyle>
+                            <chart:ChartDataLabelStyle TextColor="White" />
+                        </chart:CircularDataLabelSettings.LabelStyle>
+                    </chart:CircularDataLabelSettings>
+                </chart:PieSeries.DataLabelSettings>
+                
             </chart:PieSeries>
-
             <chart:SfCircularChart.Legend>
                 <chart:ChartLegend>
                     <chart:ChartLegend.LabelStyle>
-                        <chart:ChartLegendLabelStyle TextColor="Black" Margin="5" FontSize="18" FontAttributes="Bold" />
+                        <chart:ChartLegendLabelStyle TextColor="Black"  />
                     </chart:ChartLegend.LabelStyle>
                 </chart:ChartLegend>
             </chart:SfCircularChart.Legend>
-
         </chart:SfCircularChart>
 
-
+        <!-- Add a spacer solid black line -->
+        <BoxView Grid.Row="1" HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />
 
         <chart:SfCartesianChart x:Name="chartWinTimes"
+                                Grid.Row="2"
                                 Title="Guess Win Distribution"                                
                                 VerticalOptions="FillAndExpand"
-                                HorizontalOptions="FillAndExpand"
-                         
+                                HorizontalOptions="FillAndExpand"                         
                                 BackgroundColor="White"
                                 Margin="10">            
-
+            <chart:SfCartesianChart.PaletteBrushes>
+                <SolidColorBrush Color="#7DDA58" />                                
+            </chart:SfCartesianChart.PaletteBrushes>
+            
             <chart:SfCartesianChart.XAxes>
-                <chart:CategoryAxis />
+                <chart:CategoryAxis >
+                    <chart:CategoryAxis.Title>
+                        <chart:ChartAxisTitle  Text="Number of Guesses">
+                        </chart:ChartAxisTitle>                        
+                    </chart:CategoryAxis.Title>
+                </chart:CategoryAxis>
             </chart:SfCartesianChart.XAxes>
-
+            
             <chart:SfCartesianChart.YAxes>
                 <chart:NumericalAxis />
             </chart:SfCartesianChart.YAxes>
         </chart:SfCartesianChart>
-        
-        
-        
-        <!-- Add a spacer blank line -->
-        <Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />
-        <!-- Add a spacer blank line -->
-        <!--<Label Text="" VerticalOptions="Center" HorizontalOptions="Center" />-->
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+
+        <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
             <Button x:Name="ResetStats" Text="Reset Statistics" 
-             FontSize="18" 
-             Clicked="ResetStats_Click" 
-             Padding="10,5"
-             Margin="5" />
+         FontSize="18" 
+         Clicked="ResetStats_Click" 
+         Padding="10,5"
+         Margin="5" />
             <Button x:Name="FakeStats" Text="Fake Statistics" 
-             FontSize="18" 
-             Clicked="FakeStats_Clicked" 
-             Padding="10,5"
-             Margin="5" />
+         FontSize="18" 
+         Clicked="FakeStats_Clicked" 
+         Padding="10,5"
+         Margin="5" />
         </HorizontalStackLayout>
 
-    </VerticalStackLayout>
-    </ScrollView>
+
+    </Grid>
+
 </ContentPage>
