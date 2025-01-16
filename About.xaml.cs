@@ -3,11 +3,17 @@ using System.Diagnostics;
 using System.Reflection;
 using Microsoft.Maui.ApplicationModel;
 
+
 namespace PFBv01;
 
 public partial class About : ContentPage
 {
-	public About()
+
+    
+    private string? pfbVersion;    
+    private string? pfbBuild;
+
+    public About()
 	{
 		InitializeComponent();        
     }
@@ -22,6 +28,9 @@ public partial class About : ContentPage
         var version = AppInfo.Current.Version;
         string formattedVersion = $"{version.Major}.{version.Minor}.{version.Build}";
         BuildVersionLabel.Text = "App Version: " + formattedVersion;
+
+        pfbVersion = AppInfo.Current.VersionString;
+        pfbBuild = AppInfo.Current.BuildString;
 
     }
 

@@ -24,20 +24,16 @@
                 ShowDataLabels="True"
                 EnableTooltip="True"
                 Radius="0.8">                
-                <chart:PieSeries.PaletteBrushes>
-                    <SolidColorBrush Color="#7DDA58" />
-                    <!-- Color for Wins -->
-                    <SolidColorBrush Color="#D20103" />
-                    <!-- Color for Losses -->
-                </chart:PieSeries.PaletteBrushes>                
+                
                 <chart:PieSeries.DataLabelSettings>
                     <chart:CircularDataLabelSettings LabelPosition="Outside" >
                         <chart:CircularDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle TextColor="Black" />
+                            <chart:ChartDataLabelStyle TextColor="Black" FontSize="6" FontAttributes="Bold" />
                         </chart:CircularDataLabelSettings.LabelStyle>
                     </chart:CircularDataLabelSettings>
                 </chart:PieSeries.DataLabelSettings>                
             </chart:PieSeries>
+            
             <chart:SfCircularChart.Legend>
                 <chart:ChartLegend>
                     <chart:ChartLegend.LabelStyle>
@@ -45,6 +41,7 @@
                     </chart:ChartLegend.LabelStyle>
                 </chart:ChartLegend>
             </chart:SfCircularChart.Legend>
+            
         </chart:SfCircularChart>
 
         <!-- Add a label to display win percentage -->

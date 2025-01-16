@@ -36,14 +36,14 @@ public partial class Stats : ContentPage
 
         // Set the ItemsSource for the PieSeries
         var pieSeries = (PieSeries)WinLossChart.Series[0];
-        pieSeries.ItemsSource = pieData;
-
+        
         // Set the colors for the PieSeries
         pieSeries.PaletteBrushes = new List<Brush>
         {
             new SolidColorBrush(Color.FromArgb("#7DDA58")), // Color for Wins
             new SolidColorBrush(Color.FromArgb("#D20103"))  // Color for Losses
         };
+        pieSeries.ItemsSource = pieData;
         // Update the chart title
         WinLossChart.Title = $"Total games played: {games}";
 
@@ -77,6 +77,13 @@ public partial class Stats : ContentPage
         Preferences.Default.Set(Constants.GuessIn8Tries, 14);
         Preferences.Default.Set(Constants.GuessIn9Tries, 9);
         Preferences.Default.Set(Constants.GuessIn10Tries, 21);
+        
+        Preferences.Default.Set(Constants.Games, 10);
+        Preferences.Default.Set(Constants.Wins, 4);
+        Preferences.Default.Set(Constants.Losses, 6);
+        
+        ChartWinsLosses();
+        ChartWinTimes();
 
     }
 
