@@ -45,7 +45,8 @@ public partial class Stats : ContentPage
         };
         pieSeries.ItemsSource = pieData;
         // Update the chart title
-        WinLossChart.Title = $"Total games played: {games}";
+        //WinLossChart.Title = $"Total games played: {games}";
+        gamesPlayed.Text = $"Games Played: {games}";
 
         // calculate win percentage
         double winPercentage = (double)wins / games * 100;
