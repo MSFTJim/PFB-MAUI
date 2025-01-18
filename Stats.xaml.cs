@@ -1,4 +1,5 @@
 using Syncfusion.Maui.Charts;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PFBv01;
 
@@ -24,7 +25,8 @@ public partial class Stats : ContentPage
         int games = Preferences.Default.Get(Constants.Games, 0);
         int wins = Preferences.Default.Get(Constants.Wins, 0);
         int losses = Preferences.Default.Get(Constants.Losses, 0);
-        
+        double highWin = Preferences.Default.Get(Constants.HighWin, 0);
+
 
         // Create a data source for the PieSeries
         var pieData = new List<ChartDataPoint>
@@ -50,8 +52,13 @@ public partial class Stats : ContentPage
 
         // calculate win percentage
         double winPercentage = (double)wins / games * 100;
+        highWin = Math.Max(highWin, winPercentage);
+
         string formattedWinPercentage = winPercentage.ToString("F1");        
         winPercent.Text = $"Win %: {formattedWinPercentage}";
+
+        //highWinPercent.Text = $"Highest Win%: {highWin}%";
+        
     }
 
     private async void ResetStats_Click(object sender, EventArgs e)

@@ -8,50 +8,58 @@
 
 
     <Grid x:Name="LayoutRoot" Background="Transparent" >
-        <Grid.RowDefinitions>
-            <!--<RowDefinition x:Name="_1_AppTitle"  Height="1*"/>-->
+        <Grid.RowDefinitions>            
             <RowDefinition x:Name="_0_PieChart"   Height="3*"/>
-            <RowDefinition x:Name="_1_WinPercent"  Height="*"/>
-            <RowDefinition x:Name="_2_BlackLine"  Height="*"/>
-            <RowDefinition x:Name="_3_BarChart"   Height="4*"/>
+            <RowDefinition x:Name="_1_WinPercent"  Height="Auto"/>
+            <RowDefinition x:Name="_2_BlackLine"  Height="Auto"/>
+            <RowDefinition x:Name="_3_BarChart"   Height="6*"/>
             <RowDefinition x:Name="_4_ButtonLine" Height="2*"/>            
         </Grid.RowDefinitions>
 
-        <!--<chart:SfCircularChart x:Name="WinLossChart" Grid.Row="0" Title="Games Played" >-->
-        <chart:SfCircularChart x:Name="WinLossChart" Grid.Row="0"  >
 
-            <chart:SfCircularChart.Legend>
-                <chart:ChartLegend Placement="Top" >
-                    <chart:ChartLegend.LabelStyle>
-                        <chart:ChartLegendLabelStyle TextColor="Black"  />
-                    </chart:ChartLegend.LabelStyle>
-                </chart:ChartLegend>
-            </chart:SfCircularChart.Legend>
-            
-            <chart:PieSeries                                  
-                XBindingPath="Category" 
-                YBindingPath="Value"
-                ShowDataLabels="True"
-                EnableTooltip="True"
-                PaletteBrushes="{Binding Palette}"
-                Radius="0.8">                
-                
-                <chart:PieSeries.DataLabelSettings>
-                    <chart:CircularDataLabelSettings LabelPosition="Inside" SmartLabelAlignment="None">
-                        <!--<chart:CircularDataLabelSettings.LabelStyle>
-                            <chart:ChartDataLabelStyle TextColor="Black"  />
-                        </chart:CircularDataLabelSettings.LabelStyle>-->
-                    </chart:CircularDataLabelSettings>
-                </chart:PieSeries.DataLabelSettings>                
-            </chart:PieSeries>           
-            
-        </chart:SfCircularChart>
+        <Grid x:Name="GameWinStats" Grid.Row="0" Margin="0,0,0,0" VerticalOptions="Start">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />               
+            </Grid.ColumnDefinitions>
 
-        <!-- Add a label to display win percentage -->
-        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">            
-            <Label x:Name="gamesPlayed" Text="Games Played:" VerticalOptions="Center" HorizontalOptions="Center" />
-            <Label x:Name="winPercent" Text="" VerticalOptions="Center" HorizontalOptions="Center" />
-        </VerticalStackLayout>
+            <chart:SfCircularChart x:Name="WinLossChart" Grid.Row="0" Grid.Column="1" >
+
+                <chart:SfCircularChart.Legend>
+                    <chart:ChartLegend Placement="Top" >
+                        <chart:ChartLegend.LabelStyle>
+                            <chart:ChartLegendLabelStyle TextColor="Black"  />
+                        </chart:ChartLegend.LabelStyle>
+                    </chart:ChartLegend>
+                </chart:SfCircularChart.Legend>
+
+                <chart:PieSeries                                  
+                    XBindingPath="Category" 
+                    YBindingPath="Value"
+                    ShowDataLabels="True"
+                    EnableTooltip="True"
+                    PaletteBrushes="{Binding Palette}"
+                    Radius="0.8">
+                    <chart:PieSeries.DataLabelSettings>
+                        <chart:CircularDataLabelSettings LabelPosition="Inside" SmartLabelAlignment="None">                            
+                        </chart:CircularDataLabelSettings>
+                    </chart:PieSeries.DataLabelSettings>
+                </chart:PieSeries>
+            </chart:SfCircularChart>
+
+            <!-- Add a label to display win percentage -->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label x:Name="gamesPlayed" Text="Games Played:" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="winPercent" Text="" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="highWinPercent" Text="Highest Win%" VerticalOptions="Center" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+        
 
         <!-- Add a spacer solid black line -->
         <BoxView Grid.Row="2" HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />

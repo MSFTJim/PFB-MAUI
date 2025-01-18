@@ -5,6 +5,7 @@ namespace PFBv01
         public const string Games = "Games";
         public const string Wins = "Wins";
         public const string Losses = "Losses";
+        public const string HighWin = "HighWin";
 
         public const string GuessIn1Try = "GuessIn1Try";
         public const string GuessIn2Tries = "GuessIn2Tries";
