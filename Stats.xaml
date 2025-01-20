@@ -9,11 +9,10 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent" >
         <Grid.RowDefinitions>            
-            <RowDefinition x:Name="_0_PieChart"   Height="3*"/>
-            <RowDefinition x:Name="_1_WinPercent"  Height="Auto"/>
-            <RowDefinition x:Name="_2_BlackLine"  Height="Auto"/>
-            <RowDefinition x:Name="_3_BarChart"   Height="6*"/>
-            <RowDefinition x:Name="_4_ButtonLine" Height="2*"/>            
+            <RowDefinition x:Name="_0_PieChart"   Height="3*"/>            
+            <RowDefinition x:Name="_1_BlackLine"  Height="*"/>
+            <RowDefinition x:Name="_2_BarChart"   Height="5*"/>
+            <RowDefinition x:Name="_3_ButtonLine" Height="2*"/>            
         </Grid.RowDefinitions>
 
 
@@ -51,10 +50,10 @@
             </chart:SfCircularChart>
 
             <!-- Add a label to display win percentage -->
-            <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
                 <Label x:Name="gamesPlayed" Text="Games Played:" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Label x:Name="winPercent" Text="" VerticalOptions="Center" HorizontalOptions="Center" />
-                <Label x:Name="highWinPercent" Text="Highest Win%" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="winPercentLabel" Text="Win Percentage" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="winPercentValue" Text="N/A" VerticalOptions="Center" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
         </Grid>
@@ -62,15 +61,23 @@
         
 
         <!-- Add a spacer solid black line -->
-        <BoxView Grid.Row="2" HeightRequest="1" Color="Black" HorizontalOptions="FillAndExpand" />
+        <BoxView Grid.Row="1" HeightRequest="1" Color="Black" 
+                 HorizontalOptions="FillAndExpand" />
 
         <chart:SfCartesianChart x:Name="chartWinTimes"
-                                Grid.Row="3"
-                                Title="Guess Win Distribution"                                
+                                Grid.Row="2"
+                                                            
                                 VerticalOptions="FillAndExpand"
                                 HorizontalOptions="FillAndExpand"                         
                                 BackgroundColor="White"
-                                Margin="10">            
+                                Margin="10,-20,10,10">
+            <chart:SfCartesianChart.Title>
+                <Label x:Name="label"  Text="Victory by the Numbers: Wins by Guess Count" 
+                       Margin="10,10,10,20"
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Start" />
+
+            </chart:SfCartesianChart.Title>
             <chart:SfCartesianChart.PaletteBrushes>
                 <SolidColorBrush Color="#7DDA58" />                                
             </chart:SfCartesianChart.PaletteBrushes>
@@ -89,17 +96,17 @@
             </chart:SfCartesianChart.YAxes>
         </chart:SfCartesianChart>
 
-        <HorizontalStackLayout Grid.Row="4" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
-            <Button x:Name="ResetStats" Text="Reset Statistics" 
-         FontSize="18" 
-         Clicked="ResetStats_Click" 
-         Padding="10,5"
-         Margin="5" />
-            <Button x:Name="FakeStats" Text="Fake Statistics" 
-         FontSize="18" 
-         Clicked="FakeStats_Clicked" 
-         Padding="10,5"
-         Margin="5" />
+        <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+            <Button  x:Name="ResetStats" Text="Reset Statistics" 
+                     FontSize="18" 
+                     Clicked="ResetStats_Click" 
+                     Padding="10,5"
+                     Margin="5" />
+            <Button  x:Name="FakeStats" Text="Fake Statistics" 
+                     FontSize="18" 
+                     Clicked="FakeStats_Clicked" 
+                     Padding="10,5"
+                     Margin="5" />
         </HorizontalStackLayout>
 
 

@@ -55,7 +55,7 @@ public partial class Stats : ContentPage
         highWin = Math.Max(highWin, winPercentage);
 
         string formattedWinPercentage = winPercentage.ToString("F1");        
-        winPercent.Text = $"Win %: {formattedWinPercentage}";
+        winPercentValue.Text = $"{formattedWinPercentage}%";
 
         //highWinPercent.Text = $"Highest Win%: {highWin}%";
         
@@ -107,6 +107,8 @@ public partial class Stats : ContentPage
         int guessIn8Tries = Preferences.Default.Get(Constants.GuessIn8Tries, 0);
         int guessIn9Tries = Preferences.Default.Get(Constants.GuessIn9Tries, 0);
         int guessIn10Tries = Preferences.Default.Get(Constants.GuessIn10Tries, 0);
+
+        //guessIn7Tries = 248;
 
         var data = new List<ChartDataPoint>
         {

@@ -333,26 +333,31 @@ namespace PFBv01
                 bool DidYouWin = false;
 
                 if (CurrentAnswer == "FFF")
-                {
-                    //MessageBox.Show("Congratulations!!.  You guessed the right numbers within 10 tries!!"); 
-                    await DisplayAlert("Congratulations!!", $"You guessed the right numbers in {GuessNumber} tries!!", "OK");
+                {                    
                     //LayoutYouWon.Visibility = Visibility.Visible;
                     //Winner.Begin();
+                 
                     DidYouWin = true;
                     UpdateStats(GuessNumber, DidYouWin);
+                    string currentWinPercent = GetWinPercent();
+                    await DisplayAlert("Congratulations!!", $"You guessed the right numbers in {GuessNumber} tries. \n\nYour current win percentage is: {currentWinPercent}%", "OK");
+
                 }
                 else
-                {
-                    await DisplayAlert("You lost!!", $"You DID NOT guess the right numbers within 10 tries!!", "OK");
+                {                    
                     //LayoutYouLost.Visibility = Visibility.Visible;
                     //Explode.Begin();
                     //VibrationDevice pfbVibrationonLoss = VibrationDevice.GetDefault();
                     //pfbVibrationonLoss.Vibrate(TimeSpan.FromSeconds(1));
+                 
                     DidYouWin = false;
                     UpdateStats(GuessNumber, DidYouWin);
+                    string currentWinPercent = GetWinPercent();
+                    await DisplayAlert("You lost!!", $"You DID NOT guess the right numbers within 10 tries.  \n\nYour current win percentage is: {currentWinPercent}%", "OK");
+
                 }
                 
-                await DisplayGameStats();
+                
 
                 GuessNumber = 10;
                 GameOver = true;
@@ -608,14 +613,17 @@ namespace PFBv01
 
 
         }
-        private async Task DisplayGameStats()
+        private string GetWinPercent()
         {
             int statsGamesPlayed = Preferences.Default.Get(Constants.Games, 0);
             int statsGamesWon = Preferences.Default.Get(Constants.Wins, 0);
-            int statsGamesLost = Preferences.Default.Get(Constants.Losses, 0);
+            
+            // calculate win percentage
+            double winPercentage = (double)statsGamesWon / statsGamesPlayed * 100;            
 
-            string message = $"Games: {statsGamesPlayed}\nWon  : {statsGamesWon}\nLost : {statsGamesLost}";
-            await DisplayAlert("Game Stats", message, "OK");
+            string formattedWinPercentage = winPercentage.ToString("F1");            
+
+            return formattedWinPercentage;           
             
         }
 
