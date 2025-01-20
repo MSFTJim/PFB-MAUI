@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 # Exclude AboutAssets.txt
 **/AboutAssets.txt
+/Resources/Raw/AboutAssets.txt
