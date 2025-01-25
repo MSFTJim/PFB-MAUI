@@ -54,7 +54,7 @@ public partial class Stats : ContentPage
         double winPercentage = (double)wins / games * 100;
         highWin = Math.Max(highWin, winPercentage);
 
-        string formattedWinPercentage = winPercentage.ToString("F1");        
+        string formattedWinPercentage = winPercentage.ToString("F2");        
         winPercentValue.Text = $"{formattedWinPercentage}%";
 
         //highWinPercent.Text = $"Highest Win%: {highWin}%";

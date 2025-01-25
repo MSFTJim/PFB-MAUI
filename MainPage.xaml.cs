@@ -621,7 +621,7 @@ namespace PFBv01
             // calculate win percentage
             double winPercentage = (double)statsGamesWon / statsGamesPlayed * 100;            
 
-            string formattedWinPercentage = winPercentage.ToString("F1");            
+            string formattedWinPercentage = winPercentage.ToString("F2");            
 
             return formattedWinPercentage;           
             
