@@ -76,10 +76,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.30" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.1" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.40" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.2" />
 		<PackageReference Include="Plugin.Maui.Audio" Version="3.0.1" />
-		<PackageReference Include="Syncfusion.Maui.Charts" Version="28.1.33" />
+		<PackageReference Include="Syncfusion.Maui.Charts" Version="28.2.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -128,7 +128,11 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="powershell -Command &quot;'Last Build Date: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') | Out-File -FilePath Resources\Raw\AboutAssets.txt -Encoding utf8&quot;" />
+	  <Exec Command="powershell -Command &quot;'DB Last Build Date: ' + (Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt') | Out-File -FilePath Resources\Raw\AboutAssets.txt -Encoding utf8&quot;" />
+	</Target>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="if exist &quot;$(ProjectDir)AboutAssets.txt&quot; del &quot;$(ProjectDir)AboutAssets.txt&quot;&#xA;" />
 	</Target>
 
 
